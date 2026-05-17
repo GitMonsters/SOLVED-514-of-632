@@ -306,7 +306,7 @@ class RunRecord:
         istats_raw = d.pop("intermediate_stats", {})
 
         # Strip derived fields that aren't constructor args
-        for key in ("unique_functions", "total_calls", "hot_functions", "solver_family"):
+        for key in ("unique_functions", "total_calls", "hot_functions"):
             d.pop(key, None)
 
         rec = RunRecord(

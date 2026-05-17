@@ -568,6 +568,137 @@ def figure3_transcendplexity_profile(
     logger.info(f"Saved Figure 3 → {path}")
 
 
+def compute_training_curve(
+    mlg: "MultilayerCognitionGraph",
+) -> list[dict]:
+    """
+    Simulate a training curve by progressively adding puzzle families.
+
+    For a solver with families [A, B, C, D], checkpoint k uses families
+    [A, B, ..., family_k].  Returns a list of per-checkpoint metric dicts:
+        checkpoint, family_added, n_families, success_rate,
+        avg_participation, cross_layer_stability, transcendplexity,
+        frac_high_participation
+    Requires at least 2 families to produce a meaningful curve.
+    """
+    from arc3.cognition_metrics import compute_metrics
+    from arc3.cognition_graph import MultilayerCognitionGraph as MLG, DynamicGraphBuilder
+
+    sorted_families = sorted(mlg.family_layers.keys())
+    if len(sorted_families) < 2:
+        return []
+
+    builder = DynamicGraphBuilder()
+    curve: list[dict] = []
+    for i, fam in enumerate(sorted_families, 1):
+        active_fams = set(sorted_families[:i])
+
+        # Build a sub-MLG with only the first i families
+        sub = MLG(solver_family=mlg.solver_family)
+        sub.static_layer = mlg.static_layer
+        for f in sorted_families[:i]:
+            sub.family_layers[f] = mlg.family_layers[f]
+        sub.records = [r for r in mlg.records if r.puzzle_family in active_fams]
+
+        mr = compute_metrics(sub)
+        n_nodes = len(mr.node_metrics)
+        frac_hp = (
+            sum(1 for nm in mr.node_metrics.values() if nm.participation > 0.5) / n_nodes
+            if n_nodes else 0.0
+        )
+        curve.append({
+            "checkpoint": i,
+            "family_added": fam,
+            "n_families": i,
+            "success_rate": mr.success_rate,
+            "avg_participation": mr.avg_participation,
+            "cross_layer_stability": mr.cross_layer_stability,
+            "transcendplexity": mr.transcendplexity,
+            "frac_high_participation": frac_hp,
+        })
+    return curve
+
+
+def figure3_transcendplexity_over_training(
+    mlgs: dict[str, "MultilayerCognitionGraph"],
+    output_dir: str,
+) -> None:
+    """
+    Figure 3 (extended): Transcendplexity over simulated training.
+
+    X-axis  : number of puzzle families seen (simulated checkpoint).
+    Y1 (left)  : test accuracy / success rate on held-out family.
+    Y2 (right) : fraction of nodes with participation > 0.5.
+    Y3 (right) : cross-layer community stability.
+
+    One set of curves per solver family.  Only plotted for solvers
+    with ≥ 2 puzzle families.
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    solver_curves: dict[str, list[dict]] = {}
+    for sf, mlg in mlgs.items():
+        curve = compute_training_curve(mlg)
+        if curve:
+            solver_curves[sf] = curve
+
+    if not solver_curves:
+        logger.warning("Figure 3b: no solver has ≥ 2 families — skipping over-training plot")
+        return
+
+    colors = ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00"]
+    linestyles = ["-", "--", "-.", ":"]
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+    # --- Left panel: success rate + transcendplexity ---
+    for i, (sf, curve) in enumerate(solver_curves.items()):
+        xs = [pt["n_families"] for pt in curve]
+        success = [pt["success_rate"] for pt in curve]
+        tx = [pt["transcendplexity"] for pt in curve]
+        col = colors[i % len(colors)]
+        ls = linestyles[i % len(linestyles)]
+        ax1.plot(xs, success, ls, color=col, linewidth=2,
+                 label=f"{sf} (success)", marker="o", markersize=5)
+        ax1.plot(xs, tx, ls, color=col, linewidth=1.2, alpha=0.5,
+                 label=f"{sf} (T)", marker="s", markersize=4)
+
+    ax1.set_xlabel("Number of Puzzle Families (Checkpoint)", fontsize=11)
+    ax1.set_ylabel("Score", fontsize=11)
+    ax1.set_ylim(-0.05, 1.1)
+    ax1.set_title("Y1: Success Rate   Y2: Transcendplexity", fontsize=11)
+    ax1.legend(fontsize=8, ncol=2)
+    ax1.grid(True, alpha=0.3)
+
+    # --- Right panel: participation + stability ---
+    for i, (sf, curve) in enumerate(solver_curves.items()):
+        xs = [pt["n_families"] for pt in curve]
+        fhp = [pt["frac_high_participation"] for pt in curve]
+        stab = [pt["cross_layer_stability"] for pt in curve]
+        col = colors[i % len(colors)]
+        ls = linestyles[i % len(linestyles)]
+        ax2.plot(xs, fhp, ls, color=col, linewidth=2,
+                 label=f"{sf} (frac P>0.5)", marker="o", markersize=5)
+        ax2.plot(xs, stab, ls, color=col, linewidth=1.2, alpha=0.5,
+                 label=f"{sf} (stability)", marker="^", markersize=4)
+
+    ax2.set_xlabel("Number of Puzzle Families (Checkpoint)", fontsize=11)
+    ax2.set_ylabel("Score", fontsize=11)
+    ax2.set_ylim(-0.05, 1.1)
+    ax2.set_title("Y2: Fraction High-P Nodes   Y3: Cross-Layer Stability", fontsize=11)
+    ax2.legend(fontsize=8, ncol=2)
+    ax2.grid(True, alpha=0.3)
+
+    fig.suptitle("Figure 3: Transcendplexity Over Simulated Training (Progressive Families)",
+                 fontsize=13)
+    fig.tight_layout()
+    path = os.path.join(output_dir, "fig3b_transcendplexity_over_training.png")
+    fig.savefig(path, dpi=150)
+    plt.close(fig)
+    logger.info(f"Saved Figure 3b → {path}")
+
+
 def figure4_graph_features_vs_performance(
     all_metrics: dict[str, MetricsResult],
     output_dir: str,
@@ -830,10 +961,11 @@ def run_experiment(
         figure1_module_reuse_vs_success(all_metrics, output_dir)
         figure2_community_structure(all_metrics, mlgs, output_dir)
         figure3_transcendplexity_profile(all_metrics, output_dir)
+        figure3_transcendplexity_over_training(mlgs, output_dir)
         figure4_graph_features_vs_performance(all_metrics, output_dir)
         figure5_robustness_vs_modularity(all_metrics, output_dir)
         figure6_architectural_radar(all_metrics, output_dir)
-        logger.info("All 6 figures generated.")
+        logger.info("All figures generated.")
     except ImportError:
         logger.warning("matplotlib not available — skipping figure generation.")
 

@@ -142,18 +142,52 @@ def load_re_arc_data(re_arc_dir: str) -> dict[str, list[list]]:
 
 
 def _extract_docstring_name(solver_path: str) -> str:
-    """Read the first non-empty body line of the module docstring as a task name."""
+    """
+    Extract a descriptive text snippet from a solver file for family classification.
+
+    Strategy (in priority order):
+    1. Module-level docstring — skips the "ARC Puzzle <id> Solver" header line.
+    2. First function docstring in the file (e.g. the transform() docstring).
+    3. First non-trivial comment lines (lines starting with #).
+    4. Empty string if none of the above yield content.
+    """
     try:
         with open(solver_path) as fh:
             src = fh.read()
         import ast as _ast
         tree = _ast.parse(src)
-        doc = _ast.get_docstring(tree)
-        if doc:
-            for line in doc.splitlines():
+
+        # 1. Module-level docstring
+        module_doc = _ast.get_docstring(tree)
+        if module_doc:
+            for line in module_doc.splitlines():
                 line = line.strip()
-                if line and not line.startswith("ARC Puzzle"):
+                if line and not line.lower().startswith("arc puzzle") \
+                        and not line.lower().startswith("solver for arc"):
                     return line
+
+        # 2. First function docstring
+        for node in _ast.walk(tree):
+            if isinstance(node, (_ast.FunctionDef, _ast.AsyncFunctionDef)):
+                fn_doc = _ast.get_docstring(node)
+                if fn_doc:
+                    first = fn_doc.strip().splitlines()[0].strip()
+                    if first and len(first) > 10:
+                        return first
+
+        # 3. Comment lines
+        comment_parts: list[str] = []
+        for line in src.splitlines():
+            stripped = line.strip()
+            if stripped.startswith("#"):
+                text = stripped.lstrip("#").strip()
+                if text and len(text) > 5:
+                    comment_parts.append(text)
+                    if len(comment_parts) >= 3:
+                        break
+        if comment_parts:
+            return " ".join(comment_parts)
+
     except Exception:
         pass
     return ""

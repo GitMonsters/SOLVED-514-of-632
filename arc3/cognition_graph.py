@@ -45,9 +45,9 @@ SEMANTIC_MODULES: list[tuple[str, list[str]]] = [
         "inside", "outside", "surround",
     ]),
     ("transformation", [
-        "rotat", "flip", "reflect", "mirror", "scale", "crop", "translat",
-        "shift", "pad", "resize", "zoom", "expand", "contract", "invert",
-        "transpose",
+        "transform", "rotat", "flip", "reflect", "mirror", "scale", "crop",
+        "translat", "shift", "pad", "resize", "zoom", "expand", "contract",
+        "invert", "transpose", "apply",
     ]),
     ("color_mapping", [
         "color", "remap", "recolor", "palette", "hue", "value", "map_color",

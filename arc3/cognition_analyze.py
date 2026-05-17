@@ -123,6 +123,119 @@ def load_specialized_solver(task_id: str, solves_dir: str):
     return getattr(mod, "solve", None), path
 
 
+# ---------------------------------------------------------------------------
+# RE-ARC helpers
+# ---------------------------------------------------------------------------
+
+def load_re_arc_data(re_arc_dir: str) -> dict[str, list[list]]:
+    """
+    Load RE-ARC test pairs from <re_arc_dir>/submission.json.
+
+    Returns:
+        {task_id: [[input_grid, output_grid], ...]}
+    """
+    path = os.path.join(re_arc_dir, "submission.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
+        return json.load(f)
+
+
+def _extract_docstring_name(solver_path: str) -> str:
+    """Read the first non-empty body line of the module docstring as a task name."""
+    try:
+        with open(solver_path) as fh:
+            src = fh.read()
+        import ast as _ast
+        tree = _ast.parse(src)
+        doc = _ast.get_docstring(tree)
+        if doc:
+            for line in doc.splitlines():
+                line = line.strip()
+                if line and not line.startswith("ARC Puzzle"):
+                    return line
+    except Exception:
+        pass
+    return ""
+
+
+def run_re_arc_specialized(
+    task_id: str,
+    pairs: list[list],
+    family: str,
+    re_arc_solves_dir: str,
+    tracer: CognitionTracer,
+    log: TraceLog,
+    static_builder: StaticGraphBuilder,
+    mlg: MultilayerCognitionGraph,
+    split: str = "dev",
+    checkpoint_id: str = "re_arc_v1",
+) -> bool:
+    """
+    Run the RE-ARC per-task transform() solver and record traces.
+
+    RE-ARC solvers live in <re_arc_solves_dir>/<task_id>/solver.py and expose
+    ``transform(grid) -> grid`` (not ``solve``).  Test pairs come from
+    submission.json instead of a dataset/ task JSON.
+    """
+    solver_path = os.path.join(re_arc_solves_dir, task_id, "solver.py")
+    if not os.path.exists(solver_path):
+        return False
+
+    spec = importlib.util.spec_from_file_location(f"re_arc_solver_{task_id}", solver_path)
+    mod = importlib.util.module_from_spec(spec)
+    try:
+        spec.loader.exec_module(mod)
+    except Exception:
+        return False
+
+    transform_fn = getattr(mod, "transform", None)
+    if transform_fn is None:
+        return False
+
+    if not pairs:
+        return False
+
+    # Avg grid dimensions from all pairs
+    widths  = [len(p[0][0]) for p in pairs if p and p[0] and p[0][0]]
+    heights = [len(p[0])    for p in pairs if p and p[0]]
+    avg_w = sum(widths)  / len(widths)  if widths  else 0.0
+    avg_h = sum(heights) / len(heights) if heights else 0.0
+
+    for idx, pair in enumerate(pairs):
+        inp, expected = pair[0], pair[1]
+        with tracer.trace(task_id, task_id, family, "re_arc_specialized",
+                          checkpoint_id=checkpoint_id, split=split):
+            try:
+                result = transform_fn(inp)
+                success = (result == expected)
+            except Exception:
+                result = None
+                success = False
+
+        tracer.set_success(success)
+        tracer.set_intermediate_stats(avg_grid_width=avg_w, avg_grid_height=avg_h)
+        tracer.set_re_arc(
+            task_id=task_id,
+            example_index=idx,
+            difficulty={},
+        )
+        log.append(tracer.last_record)
+        mlg.add_records([tracer.last_record])
+
+    # Build static layer from solver source (once per MLG)
+    if mlg.static_layer is None:
+        try:
+            with open(solver_path) as fh:
+                src = fh.read()
+            g_static = static_builder.build(src, task_id)
+            mlg.set_static_layer(g_static)
+        except Exception:
+            pass
+
+    return True
+
+
 def run_specialized(
     task_id: str,
     task: dict,
@@ -526,9 +639,15 @@ def run_experiment(
     target_families: Optional[list[str]] = None,
     solver_families: Optional[list[str]] = None,
     log_path: Optional[str] = None,
+    re_arc_dir: Optional[str] = None,
 ) -> dict[str, MetricsResult]:
     """
     Full pipeline: load data → trace runs → build MLGs → compute metrics → plot.
+
+    Args:
+        re_arc_dir: If provided, also run re_arc_specialized on RE-ARC tasks
+                    (reads <re_arc_dir>/submission.json and
+                    <re_arc_dir>/solves/<id>/solver.py).
     """
     _ensure_dir(output_dir)
 
@@ -555,8 +674,7 @@ def run_experiment(
     if target_families:
         tasks_by_family = {k: v for k, v in tasks_by_family.items() if k in target_families}
 
-    total_tasks = sum(min(len(v), max_tasks_per_family) for v in tasks_by_family.items()
-                      ) if False else sum(
+    total_tasks = sum(
         min(len(v), max_tasks_per_family) for v in tasks_by_family.values()
     )
     logger.info(f"Families: {sorted(tasks_by_family)} | Tasks (capped): {total_tasks}")
@@ -565,13 +683,17 @@ def run_experiment(
     # ------------------------------------------------------------------ #
     # 2. Build MLG containers
     # ------------------------------------------------------------------ #
+    all_solver_families = list(solver_families)
+    if re_arc_dir and "re_arc_specialized" not in all_solver_families:
+        all_solver_families.append("re_arc_specialized")
+
     mlgs: dict[str, MultilayerCognitionGraph] = {
         sf: MultilayerCognitionGraph(solver_family=sf)
-        for sf in solver_families
+        for sf in all_solver_families
     }
 
     # ------------------------------------------------------------------ #
-    # 3. Run solvers — last family is held-out, rest are dev
+    # 3. Run ARC solvers — last family is held-out, rest are dev
     # ------------------------------------------------------------------ #
     all_families = sorted(tasks_by_family.keys())
     heldout_family = all_families[-1] if len(all_families) >= 2 else None
@@ -602,6 +724,40 @@ def run_experiment(
             n_done += 1
             if n_done % 20 == 0:
                 logger.info(f"  {n_done}/{total_tasks} tasks processed…")
+
+    # ------------------------------------------------------------------ #
+    # 3b. Run RE-ARC specialized solver (optional)
+    # ------------------------------------------------------------------ #
+    if re_arc_dir:
+        re_arc_data = load_re_arc_data(re_arc_dir)
+        re_arc_solves_dir = os.path.join(re_arc_dir, "solves")
+        all_re_arc_ids = sorted(re_arc_data.keys())
+        # Last 20% → heldout_family, rest → dev
+        n_heldout = max(1, len(all_re_arc_ids) // 5)
+        heldout_ids = set(all_re_arc_ids[-n_heldout:])
+        capped_ids = all_re_arc_ids[:max_tasks_per_family * 5]  # cap total RE-ARC tasks
+
+        logger.info(
+            f"RE-ARC: {len(capped_ids)} tasks "
+            f"({n_heldout} held-out), solver=re_arc_specialized"
+        )
+
+        for re_tid in capped_ids:
+            pairs = re_arc_data[re_tid]
+            if not pairs:
+                continue
+            # Classify family using solver docstring
+            solver_path = os.path.join(re_arc_solves_dir, re_tid, "solver.py")
+            doc_name = _extract_docstring_name(solver_path)
+            fam = classify_task_family(re_tid, doc_name)
+            re_split = "heldout_family" if re_tid in heldout_ids else "dev"
+
+            run_re_arc_specialized(
+                re_tid, pairs, fam,
+                re_arc_solves_dir, tracer, log,
+                static_builder, mlgs["re_arc_specialized"],
+                split=re_split,
+            )
 
     logger.info(f"Tracing complete. Total records logged: {sum(len(m.records) for m in mlgs.values())}")
 
@@ -685,6 +841,14 @@ def main() -> None:
         help="Path for trace JSONL log (default: <output>/traces.jsonl)"
     )
     parser.add_argument(
+        "--re-arc", default=None, metavar="DIR",
+        help=(
+            "Path to re-arc directory (default: none). When provided, runs the "
+            "'re_arc_specialized' solver family on RE-ARC tasks from "
+            "<DIR>/submission.json + <DIR>/solves/."
+        )
+    )
+    parser.add_argument(
         "--verbose", "-v", action="store_true",
         help="Enable debug logging"
     )
@@ -705,6 +869,7 @@ def main() -> None:
         target_families=args.families,
         solver_families=args.solvers,
         log_path=args.log,
+        re_arc_dir=args.re_arc,
     )
 
 

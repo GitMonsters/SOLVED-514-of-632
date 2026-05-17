@@ -1951,8 +1951,8 @@ class Wa30Solver:
         t0 = time.time()
         init_saved = self._save_game_state(g)
 
-        # Phase 1: kill all ysysltqlke robots via BFS (~25 s budget)
-        phase1 = self._bfs_kill_ysys(g, max_steps=50, timeout=min(25.0, timeout * 0.45))
+        # Phase 1: kill all ysysltqlke robots via BFS (~30 s budget)
+        phase1 = self._bfs_kill_ysys(g, max_steps=80, timeout=min(35.0, timeout * 0.55))
         if phase1 is None:
             if self.verbose:
                 logger.info("  WA30 kill-then-coop: Phase1 (kill ysys) timed out")
@@ -2084,6 +2084,54 @@ class Wa30Solver:
         if prot == 180: return px == tx and py + S == ty
         if prot == 90:  return px + S == tx and py == ty
         return px - S == tx and py == ty  # 270
+
+    def _find_kill_target(self, px: int, py: int, adv, obstacles: set, g) -> tuple[int, int]:
+        """Ambush strategy: return the earliest point on adv's path where player can intercept.
+
+        Instead of chasing adv (which causes oscillation), compute adv's full predicted path
+        and find the first position player can reach (adjacent + facing) before adv does.
+        Returns (target_x, target_y) to pass to _bfs_approach_next.
+        """
+        S = self.STEP
+        # Get adv's full predicted path
+        try:
+            if adv in g.nsevyuople:
+                adv_path = g.egqayvffim(adv)
+            else:
+                adv_path = g.zauouvdhta(adv)
+        except Exception:
+            adv_path = None
+
+        if not adv_path or len(adv_path) < 2:
+            return (adv.x, adv.y)
+
+        # BFS player distances (cell-level, rotation-independent) excluding adv's current cell
+        obs_no_adv = obstacles - {(adv.x, adv.y)}
+        pdist: dict[tuple[int, int], int] = {(px, py): 0}
+        pq: deque = deque([(px, py, 0)])
+        max_search = len(adv_path) + 4
+        while pq:
+            cx, cy, d = pq.popleft()
+            if d >= max_search:
+                continue
+            for dx, dy in [(0, -S), (0, S), (-S, 0), (S, 0)]:
+                npos = (cx + dx, cy + dy)
+                if npos not in obs_no_adv and npos not in pdist:
+                    pdist[npos] = d + 1
+                    pq.append((npos[0], npos[1], d + 1))
+
+        # Find earliest path step where player can be adjacent-facing before adv arrives
+        for i, (ax, ay) in enumerate(adv_path):
+            if i == 0:
+                continue  # current position, skip
+            for kx, ky in [(ax + S, ay), (ax - S, ay), (ax, ay + S), (ax, ay - S)]:
+                travel = pdist.get((kx, ky), 10 ** 9)
+                # +1: player needs one action to rotate to face adv after arriving
+                if travel + 1 <= i:
+                    return (ax, ay)
+
+        # No early intercept found — target next step as fallback
+        return adv_path[1]
 
     def _bfs_approach_next(self, px: int, py: int, prot: int,
                             tx: int, ty: int, pkbuf: set) -> int:
@@ -2299,6 +2347,233 @@ class Wa30Solver:
 
         if g.ymzfopzgbq():
             return sol
+        return None
+
+    def _simulate_with_kill(self, g, plan_sprites: list, kill_trigger_idx: int,
+                             step_limit: int, t0: float, timeout: float) -> Optional[list[int]]:
+        """Like _simulate_cooperative but kills ysys after delivering kill_trigger_idx plan blocks.
+
+        kill_trigger_idx: switch to kill-ysys mode after this many plan blocks have been
+        delivered/skipped. Set >= len(plan_sprites)+1 to never kill ysys.
+        Robots (kdw, ysys) run autonomously via g.step() each tick.
+        """
+        S = self.STEP
+        sol: list[int] = []
+        plan_idx = 0
+        kill_done = False
+        kill_mode = False
+        kill_target: Optional[tuple[int, int]] = None
+
+        qthdg: set = getattr(g, 'qthdiggudy', set())
+
+        for _step in range(step_limit):
+            if time.time() - t0 > timeout:
+                return None
+            if g.ymzfopzgbq():
+                return sol
+
+            lvl = g.current_level
+            player = lvl.get_sprites_by_tag('wbmdvjhthc')[0]
+            carried = g.nsevyuople.get(player)
+            goals_set = g.wyzquhjerd
+            blocks_all = lvl.get_sprites_by_tag('geezpjgiyd')
+            ysys_all = lvl.get_sprites_by_tag('ysysltqlke')
+            obstacles = g.pkbufziase | qthdg
+
+            # Ysys may have been killed by game logic or prior step
+            if not ysys_all:
+                kill_done = True
+                kill_mode = False
+
+            # Advance plan_idx past blocks already delivered or robot-carried
+            while plan_idx < len(plan_sprites):
+                t = plan_sprites[plan_idx]
+                if (t.x, t.y) in goals_set:
+                    plan_idx += 1
+                elif t in g.zmqreragji:
+                    plan_idx += 1
+                else:
+                    break
+
+            # Enter kill mode when enough plan blocks done and player is free
+            if not kill_done and not kill_mode and carried is None:
+                if plan_idx >= kill_trigger_idx:
+                    kill_mode = True
+                    # Compute intercept target ONCE and lock it — recomputing each step
+                    # causes the player to chase a moving target instead of committing.
+                    if ysys_all:
+                        ysys = ysys_all[0]
+                        kill_target = self._find_kill_target(
+                            player.x, player.y, ysys, obstacles, g)
+
+            # --- Decide action ---
+            if kill_mode and not kill_done and ysys_all:
+                ysys = ysys_all[0]
+                yx, yy = ysys.x, ysys.y
+                px, py = player.x, player.y
+                pr = int(player.rotation)
+                if self._is_facing_pos(px, py, pr, yx, yy):
+                    action = 5  # Kill ysys
+                    kill_done = True
+                    kill_mode = False
+                else:
+                    # Navigate to pre-computed intercept position and wait.
+                    # kill_target was locked at kill_mode entry to avoid chasing a
+                    # moving target (recomputing each step causes perpetual oscillation).
+                    if kill_target is None:
+                        kill_target = self._find_kill_target(px, py, ysys, obstacles, g)
+                    action = self._bfs_approach_next(px, py, pr, kill_target[0], kill_target[1], obstacles)
+
+            elif carried is not None:
+                # Carrying block — navigate to goal and drop
+                odx = carried.x - player.x
+                ody = carried.y - player.y
+                occupied = frozenset((s.x, s.y) for s in blocks_all if s is not carried)
+                avail_goals = {(gx, gy) for (gx, gy) in goals_set
+                               if gx % S == 0 and gy % S == 0 and (gx, gy) not in occupied}
+                if (carried.x, carried.y) in avail_goals:
+                    action = 5  # Drop at goal
+                else:
+                    targets = {(gx - odx, gy - ody) for (gx, gy) in avail_goals}
+                    action = self._bfs_carry_next(
+                        player.x, player.y, odx, ody, targets,
+                        g.pkbufziase, qthdg if qthdg else None)
+
+            else:
+                # Approach / pickup phase
+                if plan_idx >= len(plan_sprites):
+                    # All plan blocks done — help deliver any remaining undelivered blocks.
+                    # Player should not idle; after kill ysys is neutralised so no interference.
+                    extra = [b for b in blocks_all
+                             if (b.x, b.y) not in goals_set and b not in g.zmqreragji]
+                    if extra:
+                        nearest = min(extra, key=lambda b: (
+                            abs(b.x - player.x) + abs(b.y - player.y)))
+                        tx, ty = nearest.x, nearest.y
+                        if self._is_facing_pos(player.x, player.y, int(player.rotation), tx, ty):
+                            action = 5  # Pickup
+                        else:
+                            action = self._bfs_approach_next(
+                                player.x, player.y, int(player.rotation),
+                                tx, ty, obstacles)
+                    else:
+                        action = 5  # Nothing left to do; wait
+                else:
+                    target = plan_sprites[plan_idx]
+                    tx, ty = target.x, target.y
+                    if self._is_facing_pos(player.x, player.y, int(player.rotation), tx, ty):
+                        action = 5  # Pickup
+                        plan_idx += 1
+                    else:
+                        action = self._bfs_approach_next(
+                            player.x, player.y, int(player.rotation),
+                            tx, ty, obstacles)
+
+            sol.append(action)
+            g._set_action(ActionInput(id=AMAP[action], data={}))
+            g.step()
+
+        if g.ymzfopzgbq():
+            return sol
+        return None
+
+    def _solve_coop_with_kill(self, timeout: float = 55.0) -> Optional[list[int]]:
+        """For kdw+ysys levels: player delivers key blocks while KDW handles rest, then kills ysys.
+
+        Strategy:
+        1. Identify "player-preferred" blocks: those hardest for KDW to deliver efficiently
+           (farthest from nearest KDW by BFS distance, or BFS-unreachable by any KDW).
+        2. Try all permutations of up to 3 player-preferred blocks × kill timing.
+        3. KDW handles remaining blocks autonomously.
+
+        Works even when KDW *can* technically reach all blocks but won't prioritize the
+        right ones within budget (e.g., KDW trapped by walls on one side of the map).
+        """
+        import itertools
+        g = self.game
+        t0 = time.time()
+        init_saved = self._save_game_state(g)
+
+        S = self.STEP
+        goals_set = g.wyzquhjerd
+        goals_aligned = frozenset((x, y) for (x, y) in goals_set if x % S == 0 and y % S == 0)
+        qthdg: set = getattr(g, 'qthdiggudy', set())
+        obstacles = g.pkbufziase | qthdg
+        step_limit = g.kuncbnslnm.dbdarsgrbj
+
+        all_blocks = g.current_level.get_sprites_by_tag('geezpjgiyd')
+        ungoaled = [b for b in all_blocks if (b.x, b.y) not in goals_aligned]
+        kdws = g.current_level.get_sprites_by_tag('kdweefinfi')
+        ysys_list = g.current_level.get_sprites_by_tag('ysysltqlke')
+
+        if not ysys_list or not ungoaled:
+            self._restore_game_state(g, init_saved)
+            return None
+
+        def bfs_dist_from_kdw(block) -> int:
+            """BFS distance from nearest KDW to any cell adjacent to block. inf if unreachable."""
+            adj = {(block.x + S, block.y), (block.x - S, block.y),
+                   (block.x, block.y + S), (block.x, block.y - S)}
+            best = 10**9
+            for kdw in kdws:
+                kx, ky = kdw.x, kdw.y
+                dist: dict = {(kx, ky): 0}
+                q: deque = deque([(kx, ky, 0)])
+                while q:
+                    cx, cy, d = q.popleft()
+                    if (cx, cy) in adj:
+                        best = min(best, d)
+                        break
+                    if d >= best:
+                        continue
+                    for dx, dy in [(0, -S), (0, S), (-S, 0), (S, 0)]:
+                        nx, ny = cx + dx, cy + dy
+                        nd = d + 1
+                        if (nx, ny) not in obstacles and dist.get((nx, ny), 10**9) > nd:
+                            dist[(nx, ny)] = nd
+                            q.append((nx, ny, nd))
+            return best
+
+        # Sort ungoaled blocks by KDW BFS distance descending (hardest for KDW first)
+        block_dists = [(b, bfs_dist_from_kdw(b)) for b in ungoaled]
+        block_dists.sort(key=lambda x: x[1], reverse=True)
+
+        # Player-preferred: top-3 hardest blocks for KDW (farthest BFS distance)
+        candidate_pool = [b for b, _ in block_dists[:3]]
+
+        if self.verbose:
+            pm_str = [(b.x, b.y, d) for b, d in block_dists[:3]]
+            logger.info(f"  WA30 coop-with-kill: candidates={pm_str}, budget={step_limit}")
+
+        # Plans: permutations of 1..len(candidate_pool) blocks
+        plans: list[list] = []
+        for k in range(1, len(candidate_pool) + 1):
+            for combo in itertools.combinations(candidate_pool, k):
+                for perm in itertools.permutations(combo):
+                    plans.append(list(perm))
+
+        tried = 0
+        for plan in plans:
+            if time.time() - t0 > timeout * 0.97:
+                break
+            # Try killing ysys after 0, 1, ..., len(plan) blocks
+            for kill_after in range(len(plan) + 1):
+                if time.time() - t0 > timeout * 0.97:
+                    break
+                self._restore_game_state(g, init_saved)
+                sol = self._simulate_with_kill(g, plan, kill_after, step_limit, t0, timeout)
+                tried += 1
+                if sol is not None:
+                    if self.verbose:
+                        plan_str = [(b.x, b.y) for b in plan]
+                        logger.info(f"  WA30 coop-with-kill: solved! plan={plan_str}, "
+                                    f"kill_after={kill_after}, {len(sol)} moves ({tried} tried)")
+                    self._restore_game_state(g, init_saved)
+                    return sol
+
+        if self.verbose:
+            logger.info(f"  WA30 coop-with-kill: no solution ({tried} combinations tried)")
+        self._restore_game_state(g, init_saved)
         return None
 
     def _detect_box(self, qthdg: set, S: int) -> Optional[tuple[int,int,int,int]]:
@@ -2626,6 +2901,50 @@ class Wa30Solver:
             logger.info(f"  WA30 No solution: {nodes} nodes, {len(visited)} states")
         return None
 
+    def _solve_kill_ysys_then_deliver(self, timeout: float = 55.0) -> Optional[list[int]]:
+        """For ysys-only levels: kill ysysltqlke, then fast-solve block delivery.
+
+        Phase 1: BFS to kill all ysys robots (state = player + ysys positions).
+        Phase 2: fast A* delivery (state space shrinks with no ysys).
+        """
+        g = self.game
+        t0 = time.time()
+        init_saved = self._save_game_state(g)
+
+        phase1 = self._bfs_kill_ysys(g, max_steps=80, timeout=timeout * 0.45)
+        if phase1 is None:
+            if self.verbose:
+                logger.info("  WA30 kill-ysys-deliver: kill phase failed")
+            self._restore_game_state(g, init_saved)
+            return None
+
+        if self.verbose:
+            logger.info(f"  WA30 kill-ysys-deliver: killed ysys in {len(phase1)} steps")
+
+        # Replay kill sequence from the true initial state
+        self._restore_game_state(g, init_saved)
+        for a in phase1:
+            g._set_action(ActionInput(id=AMAP[a], data={}))
+            g.step()
+
+        if self._is_win(g):
+            return phase1
+
+        # Phase 2: re-extract level model (ysys gone, remaining step budget matters)
+        model = self._extract_level(g)
+        remaining_timeout = max(1.0, timeout - (time.time() - t0))
+        phase2 = self._solve_fast(model, timeout=remaining_timeout)
+
+        self._restore_game_state(g, init_saved)
+        if phase2 is not None:
+            if self.verbose:
+                logger.info(f"  WA30 kill-ysys-deliver: delivered in {len(phase2)} more steps")
+            return phase1 + phase2
+
+        if self.verbose:
+            logger.info("  WA30 kill-ysys-deliver: delivery phase failed")
+        return None
+
     def solve_level(self, timeout: float = 55.0) -> Optional[list[int]]:
         """Solve current level using appropriate strategy."""
         g = self.game
@@ -2635,6 +2954,11 @@ class Wa30Solver:
             has_kdw = len(lvl.get_sprites_by_tag('kdweefinfi')) > 0
             has_ysys = len(lvl.get_sprites_by_tag('ysysltqlke')) > 0
             if has_kdw and has_ysys:
+                # Try cooperative-with-kill first (handles trapped KDW + adversarial ysys).
+                # Returns None immediately when no player-only blocks exist, so no time wasted.
+                sol = self._solve_coop_with_kill(timeout=timeout * 0.40)
+                if sol is not None:
+                    return sol
                 # Mixed levels: try cooperative first (ysys may not interfere much),
                 # then kill-then-coop if that fails.
                 sol = self._solve_cooperative(timeout=timeout * 0.45)
@@ -2648,8 +2972,13 @@ class Wa30Solver:
                 sol = self._solve_cooperative(timeout=timeout * 0.7)
                 if sol is not None:
                     return sol
+            elif has_ysys:
+                # ysys-only levels: kill ysys first, then fast delivery
+                sol = self._solve_kill_ysys_then_deliver(timeout=timeout * 0.9)
+                if sol is not None:
+                    return sol
             # Fallback (or ysysltqlke-only levels): save/restore A*
-            sr_timeout = timeout * (0.3 if has_kdw else 1.0)
+            sr_timeout = timeout * (0.3 if has_kdw else 0.5)
             return self._solve_save_restore(timeout=sr_timeout)
         return self._solve_fast(model, timeout=timeout)
 
@@ -3032,6 +3361,12 @@ class GameAwareSolver:
         total = 1
         wl = obs.win_levels
         lc = obs.levels_completed
+
+        # Guard against old-API TN36 variants that lack the expected panel attribute.
+        if not hasattr(env._game, 'fdksqlmpki'):
+            if self.verbose:
+                logger.info("TN36: unsupported game API (missing fdksqlmpki), skipping")
+            return self._result(total, lc, wl, False, t0)
 
         for level_num in range(wl):
             if total > budget:

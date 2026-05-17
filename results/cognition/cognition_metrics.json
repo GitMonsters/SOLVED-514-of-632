@@ -1,0 +1,338 @@
+{
+  "specialized": {
+    "solver_family": "specialized",
+    "modularity": -0.15036420395421438,
+    "avg_participation": 0.22705664028929134,
+    "cross_layer_stability": 0.45535714285714285,
+    "transcendplexity": 0.3274297989728594,
+    "n_records": 91,
+    "success_rate": 1.0,
+    "n_families": 8,
+    "nodes": {
+      "object_segmentation": {
+        "participation": 0.7709213863060016,
+        "activation_total": 26,
+        "activation_entropy": 0.7713406616876396,
+        "betweenness": 0.0,
+        "pagerank": 0.15526464495466646,
+        "community": "C0",
+        "community_stability": 0.35714285714285715
+      },
+      "spatial_reasoning": {
+        "participation": 0.17594323698440562,
+        "activation_total": 269,
+        "activation_entropy": 0.25828460839714246,
+        "betweenness": 0.023809523809523808,
+        "pagerank": 0.12442378582916676,
+        "community": "C2",
+        "community_stability": 0.17857142857142858
+      },
+      "transformation": {
+        "participation": 0.2257495590828924,
+        "activation_total": 9,
+        "activation_entropy": 0.5032583347756457,
+        "betweenness": 0.14285714285714285,
+        "pagerank": 0.06419528504370256,
+        "community": "C2",
+        "community_stability": 0.35714285714285715
+      },
+      "color_mapping": {
+        "participation": 0.0,
+        "activation_total": 13,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.04908658776770365,
+        "community": "C1",
+        "community_stability": 0.5357142857142857
+      },
+      "counting": {
+        "participation": 0.0,
+        "activation_total": 27,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.050739801018619,
+        "community": "C0",
+        "community_stability": 0.5357142857142857
+      },
+      "pattern_matching": {
+        "participation": 0.02987337648098125,
+        "activation_total": 151,
+        "activation_entropy": 0.10160931184917106,
+        "betweenness": 0.21428571428571427,
+        "pagerank": 0.09408719806146311,
+        "community": "C0",
+        "community_stability": 0.39285714285714285
+      },
+      "search": {
+        "participation": 0.0,
+        "activation_total": 12,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.03391829388385183,
+        "community": "C1",
+        "community_stability": 0.5357142857142857
+      },
+      "utility": {
+        "participation": 0.6139655634600499,
+        "activation_total": 129736,
+        "activation_entropy": 0.5859114554184839,
+        "betweenness": 0.8571428571428571,
+        "pagerank": 0.42828440344082647,
+        "community": "C1",
+        "community_stability": 0.75
+      }
+    }
+  },
+  "pipeline": {
+    "solver_family": "pipeline",
+    "modularity": 0.0,
+    "avg_participation": 0.9051697939467109,
+    "cross_layer_stability": 0.9375,
+    "transcendplexity": 0.6433179175786844,
+    "n_records": 91,
+    "success_rate": 0.0,
+    "n_families": 8,
+    "nodes": {
+      "object_segmentation": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.027522935783458657,
+        "community": "C_iso_object_segmentation",
+        "community_stability": 1.0
+      },
+      "spatial_reasoning": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.027522935783458657,
+        "community": "C_iso_spatial_reasoning",
+        "community_stability": 1.0
+      },
+      "transformation": {
+        "participation": 0.9112720978592848,
+        "activation_total": 861,
+        "activation_entropy": 0.8492980502113668,
+        "betweenness": 0.08333333333333333,
+        "pagerank": 0.2510888305361149,
+        "community": "C0",
+        "community_stability": 1.0
+      },
+      "color_mapping": {
+        "participation": 0.9112720978592848,
+        "activation_total": 287,
+        "activation_entropy": 0.8492980502113668,
+        "betweenness": 0.011904761904761904,
+        "pagerank": 0.13569335461357107,
+        "community": "C0",
+        "community_stability": 1.0
+      },
+      "counting": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.027522935783458657,
+        "community": "C_iso_counting",
+        "community_stability": 1.0
+      },
+      "pattern_matching": {
+        "participation": 0.899047619047619,
+        "activation_total": 90,
+        "activation_entropy": 0.8291519617508295,
+        "betweenness": 0.0,
+        "pagerank": 0.13306293524584917,
+        "community": "C0",
+        "community_stability": 0.75
+      },
+      "search": {
+        "participation": 0.9080852799673661,
+        "activation_total": 378,
+        "activation_entropy": 0.8444330245909837,
+        "betweenness": 0.07142857142857142,
+        "pagerank": 0.25452078840717857,
+        "community": "C0",
+        "community_stability": 1.0
+      },
+      "utility": {
+        "participation": 0.896171875,
+        "activation_total": 640,
+        "activation_entropy": 0.825383313140987,
+        "betweenness": 0.14285714285714285,
+        "pagerank": 0.14306528384691014,
+        "community": "C0",
+        "community_stability": 0.75
+      }
+    }
+  },
+  "baseline": {
+    "solver_family": "baseline",
+    "modularity": 0.0,
+    "avg_participation": 0.8970621215519174,
+    "cross_layer_stability": 1.0,
+    "transcendplexity": 0.6588248486207671,
+    "n_records": 91,
+    "success_rate": 0.0,
+    "n_families": 8,
+    "nodes": {
+      "object_segmentation": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "0",
+        "community_stability": 1.0
+      },
+      "spatial_reasoning": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "1",
+        "community_stability": 1.0
+      },
+      "transformation": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "2",
+        "community_stability": 1.0
+      },
+      "color_mapping": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "3",
+        "community_stability": 1.0
+      },
+      "counting": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "4",
+        "community_stability": 1.0
+      },
+      "pattern_matching": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "5",
+        "community_stability": 1.0
+      },
+      "search": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "6",
+        "community_stability": 1.0
+      },
+      "utility": {
+        "participation": 0.8970621215519174,
+        "activation_total": 91,
+        "activation_entropy": 0.826531257781646,
+        "betweenness": 0.0,
+        "pagerank": 0.125,
+        "community": "7",
+        "community_stability": 1.0
+      }
+    }
+  },
+  "re_arc_specialized": {
+    "solver_family": "re_arc_specialized",
+    "modularity": 0.07593233371780073,
+    "avg_participation": 0.0,
+    "cross_layer_stability": 1.0,
+    "transcendplexity": 0.31623358716240835,
+    "n_records": 191,
+    "success_rate": 0.010471204188481676,
+    "n_families": 1,
+    "nodes": {
+      "object_segmentation": {
+        "participation": 0.0,
+        "activation_total": 42,
+        "activation_entropy": 0.0,
+        "betweenness": 0.07142857142857142,
+        "pagerank": 0.19621604636989043,
+        "community": "C0",
+        "community_stability": 1.0
+      },
+      "spatial_reasoning": {
+        "participation": 0.0,
+        "activation_total": 3310,
+        "activation_entropy": 0.0,
+        "betweenness": 0.14285714285714285,
+        "pagerank": 0.10439584560125316,
+        "community": "C1",
+        "community_stability": 1.0
+      },
+      "transformation": {
+        "participation": 0.0,
+        "activation_total": 276,
+        "activation_entropy": 0.0,
+        "betweenness": 0.16666666666666666,
+        "pagerank": 0.09863084217989984,
+        "community": "C1",
+        "community_stability": 1.0
+      },
+      "color_mapping": {
+        "participation": 0.0,
+        "activation_total": 22,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.06988129700405286,
+        "community": "C0",
+        "community_stability": 1.0
+      },
+      "counting": {
+        "participation": 0.0,
+        "activation_total": 0,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.020979020979020983,
+        "community": "C_iso_counting",
+        "community_stability": 1.0
+      },
+      "pattern_matching": {
+        "participation": 0.0,
+        "activation_total": 36,
+        "activation_entropy": 0.0,
+        "betweenness": 0.0,
+        "pagerank": 0.06988129700405286,
+        "community": "C0",
+        "community_stability": 1.0
+      },
+      "search": {
+        "participation": 0.0,
+        "activation_total": 20,
+        "activation_entropy": 0.0,
+        "betweenness": 0.3333333333333333,
+        "pagerank": 0.046876755355847344,
+        "community": "C1",
+        "community_stability": 1.0
+      },
+      "utility": {
+        "participation": 0.0,
+        "activation_total": 47360,
+        "activation_entropy": 0.0,
+        "betweenness": 0.3333333333333333,
+        "pagerank": 0.3931388955059823,
+        "community": "C0",
+        "community_stability": 1.0
+      }
+    }
+  }
+}

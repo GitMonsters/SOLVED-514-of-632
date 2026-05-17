@@ -159,6 +159,16 @@ def _extract_docstring_name(solver_path: str) -> str:
     return ""
 
 
+def _grid_dims(grid: list) -> tuple[float, float]:
+    """Return (width, height) of a grid that may be 1D or 2D."""
+    if not grid:
+        return 0.0, 0.0
+    if isinstance(grid[0], list):
+        return float(len(grid[0])), float(len(grid))
+    # 1D grid (single row of ints)
+    return float(len(grid)), 1.0
+
+
 def run_re_arc_specialized(
     task_id: str,
     pairs: list[list],
@@ -197,10 +207,9 @@ def run_re_arc_specialized(
         return False
 
     # Avg grid dimensions from all pairs
-    widths  = [len(p[0][0]) for p in pairs if p and p[0] and p[0][0]]
-    heights = [len(p[0])    for p in pairs if p and p[0]]
-    avg_w = sum(widths)  / len(widths)  if widths  else 0.0
-    avg_h = sum(heights) / len(heights) if heights else 0.0
+    dims = [_grid_dims(p[0]) for p in pairs if p and p[0] is not None]
+    avg_w = sum(d[0] for d in dims) / len(dims) if dims else 0.0
+    avg_h = sum(d[1] for d in dims) / len(dims) if dims else 0.0
 
     for idx, pair in enumerate(pairs):
         inp, expected = pair[0], pair[1]

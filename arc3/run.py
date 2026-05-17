@@ -21,6 +21,7 @@ import arc_agi
 from arcengine import GameAction, GameState
 
 from arc3.agent import OctoTetraAgent
+from arc3.solver import GameAwareSolver
 
 
 def setup_logging(verbose: bool):
@@ -50,10 +51,15 @@ def run_game(arc: arc_agi.Arcade, game_id: str, agent,
         return {'game_id': game_id, 'error': 'Failed to create environment'}
 
     agent.reset()
-    if hasattr(agent, 'play_game'):
-        result = agent.play_game(env, GameAction)
-    else:
-        result = agent.play(env, GameAction)
+    try:
+        if hasattr(agent, 'play_game'):
+            result = agent.play_game(env, GameAction)
+        else:
+            result = agent.play(env, GameAction)
+    except Exception as exc:
+        logger.error(f"Solver crashed on {game_id}: {exc}")
+        return {'game_id': game_id, 'error': str(exc), 'levels_completed': 0,
+                'win_levels': 0, 'total_actions': 0, 'won': False, 'elapsed_seconds': 0}
     result['game_id'] = game_id
 
     logger.info(f"Result: {result['levels_completed']}/{result['win_levels']} levels, "
@@ -98,9 +104,15 @@ def main():
     else:
         arc = arc_agi.Arcade()
 
-    # Get available games
-    games = arc.get_environments()
-    logger.info(f"Available games: {len(games)}")
+    # Get available games, filtering to canonical versions only
+    # (dir name must match the version hash in game_id to avoid stale duplicates)
+    all_envs = arc.get_environments()
+    games = [
+        e for e in all_envs
+        if "-" not in e.game_id
+        or (e.local_dir and e.game_id.split("-", 1)[1] in e.local_dir)
+    ]
+    logger.info(f"Available games: {len(games)} (skipped {len(all_envs) - len(games)} legacy)")
 
     if args.game:
         # Filter to specific game
@@ -124,11 +136,9 @@ def main():
             use_llm=not args.no_mercury,
         )
     else:
-        agent = OctoTetraAgent(
-            max_actions_per_level=args.max_actions,
-            verbose=args.verbose,
-            use_mercury=not args.no_mercury,
-        )
+        # GameAwareSolver handles LS20/VC33/TN36/WA30 with game-specific BFS,
+        # and falls back to OctoTetraAgent for all other games.
+        agent = GameAwareSolver(verbose=args.verbose)
 
     # Run games
     all_results = []

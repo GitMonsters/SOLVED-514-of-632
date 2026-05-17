@@ -181,6 +181,193 @@ class PerceptionModule:
                                 return (int(np.sign(dr)), int(np.sign(dc)))
         return None
 
+    def detect_shapes(self, frame: np.ndarray) -> dict:
+        """Detect rectangular, diamond, and circular shapes in frame."""
+        shapes = {'rectangles': [], 'diamonds': [], 'sparse': []}
+        visited = np.zeros_like(frame, dtype=bool)
+        bg = max(np.unique(frame, return_counts=True)[1]) if frame.size > 0 else 0
+        bg_color = np.unique(frame)[np.argmax(np.unique(frame, return_counts=True)[1])]
+        
+        for r in range(frame.shape[0]):
+            for c in range(frame.shape[1]):
+                if visited[r, c] or frame[r, c] == bg_color:
+                    continue
+                
+                color = int(frame[r, c])
+                pixels = []
+                queue = [(r, c)]
+                visited[r, c] = True
+                
+                while queue:
+                    cr, cc = queue.pop(0)
+                    pixels.append((cr, cc))
+                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        nr, nc = cr + dr, cc + dc
+                        if (0 <= nr < frame.shape[0] and 0 <= nc < frame.shape[1]
+                                and not visited[nr, nc] and frame[nr, nc] == color):
+                            visited[nr, nc] = True
+                            queue.append((nr, nc))
+                
+                if len(pixels) < 2:
+                    continue
+                
+                rows = [p[0] for p in pixels]
+                cols = [p[1] for p in pixels]
+                min_r, max_r = min(rows), max(rows)
+                min_c, max_c = min(cols), max(cols)
+                height = max_r - min_r + 1
+                width = max_c - min_c + 1
+                fill_ratio = len(pixels) / (height * width) if height * width > 0 else 0
+                
+                shape_info = {
+                    'color': color,
+                    'bbox': (min_r, min_c, max_r, max_c),
+                    'size': len(pixels),
+                    'height': height,
+                    'width': width,
+                    'fill_ratio': fill_ratio,
+                    'aspect_ratio': width / height if height > 0 else 1.0,
+                }
+                
+                if fill_ratio > 0.8:
+                    shapes['rectangles'].append(shape_info)
+                elif fill_ratio > 0.5:
+                    shapes['diamonds'].append(shape_info)
+                else:
+                    shapes['sparse'].append(shape_info)
+        
+        return shapes
+
+    def detect_symmetry(self, frame: np.ndarray) -> dict:
+        """Detect rotational and reflectional symmetry."""
+        symmetry = {
+            'rotational_90': False,
+            'rotational_180': False,
+            'rotational_270': False,
+            'horizontal_flip': False,
+            'vertical_flip': False,
+            'scores': {}
+        }
+        
+        h, w = frame.shape
+        
+        # Check 180° rotational symmetry
+        rot180 = np.rot90(frame, 2)
+        sym180_score = np.sum(frame == rot180) / frame.size if frame.size > 0 else 0
+        symmetry['scores']['rotational_180'] = float(sym180_score)
+        if sym180_score > 0.95:
+            symmetry['rotational_180'] = True
+        
+        # Check horizontal flip
+        h_flip = np.fliplr(frame)
+        h_sym_score = np.sum(frame == h_flip) / frame.size if frame.size > 0 else 0
+        symmetry['scores']['horizontal_flip'] = float(h_sym_score)
+        if h_sym_score > 0.95:
+            symmetry['horizontal_flip'] = True
+        
+        # Check vertical flip
+        v_flip = np.flipud(frame)
+        v_sym_score = np.sum(frame == v_flip) / frame.size if frame.size > 0 else 0
+        symmetry['scores']['vertical_flip'] = float(v_sym_score)
+        if v_sym_score > 0.95:
+            symmetry['vertical_flip'] = True
+        
+        return symmetry
+
+    def cluster_colors(self, frame: np.ndarray) -> dict:
+        """Analyze color distribution and clustering."""
+        unique_colors, counts = np.unique(frame, return_counts=True)
+        total_pixels = frame.size
+        
+        clusters = {}
+        for color, count in zip(unique_colors, counts):
+            fraction = count / total_pixels if total_pixels > 0 else 0
+            clusters[int(color)] = {
+                'count': int(count),
+                'fraction': float(fraction),
+                'percentage': float(fraction * 100),
+            }
+        
+        sorted_by_freq = sorted(clusters.items(), key=lambda x: x[1]['count'], reverse=True)
+        
+        return {
+            'color_clusters': clusters,
+            'dominant_color': sorted_by_freq[0][0] if sorted_by_freq else None,
+            'dominant_fraction': sorted_by_freq[0][1]['fraction'] if sorted_by_freq else 0,
+            'unique_count': len(unique_colors),
+            'sorted_by_frequency': sorted_by_freq,
+        }
+
+    def analyze_scaling(self, frame1: np.ndarray, frame2: np.ndarray) -> dict:
+        """Detect scaling relationship between two grids."""
+        h1, w1 = frame1.shape
+        h2, w2 = frame2.shape
+        
+        scale_factors = []
+        if h2 % h1 == 0 and w2 % w1 == 0:
+            sy = h2 // h1
+            sx = w2 // w1
+            if sy == sx:
+                scale_factors.append(sy)
+                # Verify by upscaling frame1
+                expanded = np.repeat(np.repeat(frame1, sy, axis=0), sx, axis=1)
+                if expanded.shape == frame2.shape:
+                    match = np.sum(expanded == frame2) / frame2.size if frame2.size > 0 else 0
+                    if match > 0.9:
+                        return {
+                            'scaled': True,
+                            'scale_factor': int(sy),
+                            'match_ratio': float(match),
+                        }
+        
+        return {
+            'scaled': False,
+            'scale_factor': None,
+            'match_ratio': 0.0,
+        }
+
+    def measure_connectivity(self, frame: np.ndarray) -> dict:
+        """Measure connectivity patterns in the grid."""
+        bg = np.unique(frame, return_counts=True)[0][np.argmax(np.unique(frame, return_counts=True)[1])]
+        
+        # Count objects and their sizes
+        visited = np.zeros_like(frame, dtype=bool)
+        object_sizes = []
+        
+        for r in range(frame.shape[0]):
+            for c in range(frame.shape[1]):
+                if visited[r, c] or frame[r, c] == bg:
+                    continue
+                
+                size = 0
+                queue = [(r, c)]
+                visited[r, c] = True
+                
+                while queue:
+                    cr, cc = queue.pop(0)
+                    size += 1
+                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        nr, nc = cr + dr, cc + dc
+                        if (0 <= nr < frame.shape[0] and 0 <= nc < frame.shape[1]
+                                and not visited[nr, nc] and frame[nr, nc] != bg):
+                            visited[nr, nc] = True
+                            queue.append((nr, nc))
+                
+                if size > 1:
+                    object_sizes.append(size)
+        
+        total_non_bg = np.sum(frame != bg)
+        
+        return {
+            'object_count': len(object_sizes),
+            'object_sizes': object_sizes,
+            'avg_object_size': float(np.mean(object_sizes)) if object_sizes else 0.0,
+            'max_object_size': int(max(object_sizes)) if object_sizes else 0,
+            'min_object_size': int(min(object_sizes)) if object_sizes else 0,
+            'fragmentation': float(len(object_sizes) / (total_non_bg / 10 + 1)) if total_non_bg > 0 else 0.0,
+            'is_connected': len(object_sizes) == 1,
+        }
+
     def reset(self):
         """Reset perception state for new game."""
         self.prev_frame = None

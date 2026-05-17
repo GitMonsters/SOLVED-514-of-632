@@ -32,6 +32,58 @@ class Hypothesis:
         self.confidence = self.evidence_for / total if total > 0 else 0.0
 
 
+@dataclass
+class TransformationRule:
+    """A rule describing input→output grid transformation."""
+    rule_type: str  # 'rotation', 'scaling', 'color_map', 'crop', 'reflection'
+    description: str
+    confidence: float = 0.0
+    parameters: dict = field(default_factory=dict)
+    evidence_for: int = 0
+    evidence_against: int = 0
+
+    def update(self, supports: bool):
+        if supports:
+            self.evidence_for += 1
+        else:
+            self.evidence_against += 1
+        total = self.evidence_for + self.evidence_against
+        if total > 0:
+            self.confidence = self.evidence_for / total
+        return self.confidence
+
+    def apply(self, grid: np.ndarray) -> Optional[np.ndarray]:
+        """Apply this transformation rule to a grid."""
+        try:
+            if self.rule_type == 'rotation':
+                rotation_times = self.parameters.get('times', 1)
+                return np.rot90(grid, rotation_times)
+            elif self.rule_type == 'scaling':
+                scale = self.parameters.get('scale', 1)
+                if scale > 1:
+                    return np.repeat(np.repeat(grid, scale, axis=0), scale, axis=1)
+            elif self.rule_type == 'color_map':
+                mapping = self.parameters.get('mapping', {})
+                result = grid.copy()
+                for src, dst in mapping.items():
+                    result[grid == src] = dst
+                return result
+            elif self.rule_type == 'crop':
+                bbox = self.parameters.get('bbox')
+                if bbox:
+                    r1, c1, r2, c2 = bbox
+                    return grid[r1:r2+1, c1:c2+1]
+            elif self.rule_type == 'reflection':
+                axis = self.parameters.get('axis', 'h')  # 'h' or 'v'
+                if axis == 'h':
+                    return np.fliplr(grid)
+                else:
+                    return np.flipud(grid)
+        except Exception:
+            pass
+        return None
+
+
 class RuleInferenceEngine:
     """Infers game rules from observed action→effect patterns."""
 
@@ -276,4 +328,199 @@ class RuleInferenceEngine:
         self.obstacle_colors.clear()
         self.player_color = None
         self.level_advance_conditions.clear()
+
+    def infer_rotation(self, input_grid: np.ndarray, output_grid: np.ndarray) -> Optional[TransformationRule]:
+        """Detect if output is a rotation of input."""
+        for rotation_times in [1, 2, 3]:
+            rotated = np.rot90(input_grid, rotation_times)
+            if rotated.shape == output_grid.shape and np.array_equal(rotated, output_grid):
+                rule_names = {1: '90°', 2: '180°', 3: '270°'}
+                rule = TransformationRule(
+                    rule_type='rotation',
+                    description=f'Rotate {rule_names[rotation_times]}',
+                    parameters={'times': rotation_times},
+                )
+                rule.update(True)
+                return rule
+        return None
+
+    def infer_scaling(self, input_grid: np.ndarray, output_grid: np.ndarray) -> Optional[TransformationRule]:
+        """Detect if output is a scaled version of input."""
+        h_in, w_in = input_grid.shape
+        h_out, w_out = output_grid.shape
+        
+        if h_out % h_in == 0 and w_out % w_in == 0:
+            sy = h_out // h_in
+            sx = w_out // w_in
+            if sy == sx and sy > 1:
+                scaled = np.repeat(np.repeat(input_grid, sy, axis=0), sx, axis=1)
+                if np.array_equal(scaled, output_grid):
+                    rule = TransformationRule(
+                        rule_type='scaling',
+                        description=f'Scale by {sy}x',
+                        parameters={'scale': sy},
+                    )
+                    rule.update(True)
+                    return rule
+        return None
+
+    def infer_color_mapping(self, input_grid: np.ndarray, output_grid: np.ndarray) -> Optional[TransformationRule]:
+        """Detect if output is a color-mapped version of input."""
+        if input_grid.shape != output_grid.shape:
+            return None
+        
+        mapping = {}
+        consistent = True
+        
+        for in_val, out_val in zip(input_grid.flat, output_grid.flat):
+            in_val, out_val = int(in_val), int(out_val)
+            if in_val in mapping:
+                if mapping[in_val] != out_val:
+                    consistent = False
+                    break
+            else:
+                mapping[in_val] = out_val
+        
+        if consistent and len(mapping) > 1 and mapping != {i: i for i in mapping}:
+            rule = TransformationRule(
+                rule_type='color_map',
+                description=f'Color mapping: {mapping}',
+                parameters={'mapping': mapping},
+            )
+            rule.update(True)
+            return rule
+        return None
+
+    def infer_crop(self, input_grid: np.ndarray, output_grid: np.ndarray) -> Optional[TransformationRule]:
+        """Detect if output is a cropped region of input."""
+        h_in, w_in = input_grid.shape
+        h_out, w_out = output_grid.shape
+        
+        if h_out <= h_in and w_out <= w_in:
+            for r1 in range(h_in - h_out + 1):
+                for c1 in range(w_in - w_out + 1):
+                    cropped = input_grid[r1:r1+h_out, c1:c1+w_out]
+                    if np.array_equal(cropped, output_grid):
+                        rule = TransformationRule(
+                            rule_type='crop',
+                            description=f'Crop to region [{r1}:{r1+h_out}, {c1}:{c1+w_out}]',
+                            parameters={'bbox': (r1, c1, r1+h_out-1, c1+w_out-1)},
+                        )
+                        rule.update(True)
+                        return rule
+        return None
+
+    def infer_reflection(self, input_grid: np.ndarray, output_grid: np.ndarray) -> Optional[TransformationRule]:
+        """Detect if output is a reflection of input."""
+        if input_grid.shape != output_grid.shape:
+            return None
+        
+        h_flip = np.fliplr(input_grid)
+        if np.array_equal(h_flip, output_grid):
+            rule = TransformationRule(
+                rule_type='reflection',
+                description='Horizontal flip',
+                parameters={'axis': 'h'},
+            )
+            rule.update(True)
+            return rule
+        
+        v_flip = np.flipud(input_grid)
+        if np.array_equal(v_flip, output_grid):
+            rule = TransformationRule(
+                rule_type='reflection',
+                description='Vertical flip',
+                parameters={'axis': 'v'},
+            )
+            rule.update(True)
+            return rule
+        
+        return None
+
+    def infer_transformation_rules(self, training_examples: list[dict]) -> list[TransformationRule]:
+        """Infer transformation rules from training examples.
+        
+        Args:
+            training_examples: List of {'input': grid, 'output': grid} dicts
+        
+        Returns:
+            List of TransformationRule objects, sorted by confidence
+        """
+        rules = []
+        
+        for example in training_examples:
+            inp = np.array(example['input'], dtype=int)
+            out = np.array(example['output'], dtype=int)
+            
+            # Try each transformation type
+            for infer_fn in [self.infer_rotation, self.infer_scaling, 
+                             self.infer_color_mapping, self.infer_crop, self.infer_reflection]:
+                rule = infer_fn(inp, out)
+                if rule:
+                    # Check if we already have this rule
+                    existing = None
+                    for r in rules:
+                        if r.rule_type == rule.rule_type and r.parameters == rule.parameters:
+                            existing = r
+                            break
+                    
+                    if existing:
+                        existing.update(True)
+                    else:
+                        rules.append(rule)
+        
+        # If no structured rules found, try pattern-based rules
+        if not rules:
+            pattern_rule = self._infer_pattern_rule(training_examples)
+            if pattern_rule:
+                rules.append(pattern_rule)
+        
+        # Sort by confidence
+        rules.sort(key=lambda r: r.confidence, reverse=True)
+        return rules
+
+    def _infer_pattern_rule(self, training_examples: list[dict]) -> Optional[TransformationRule]:
+        """Infer pattern-based transformations when structured rules fail."""
+        if not training_examples:
+            return None
+        
+        # Check if output is a vertical/horizontal repeat
+        inp = np.array(training_examples[0]['input'], dtype=int)
+        out = np.array(training_examples[0]['output'], dtype=int)
+        
+        if inp.shape[0] == out.shape[0] and inp.shape[1] * 2 == out.shape[1]:
+            # Might be horizontal duplication
+            left = out[:, :inp.shape[1]]
+            right = out[:, inp.shape[1]:]
+            if np.array_equal(left, inp) or np.array_equal(right, inp):
+                rule = TransformationRule(
+                    rule_type='pattern',
+                    description='Output shows input pattern transformation',
+                    parameters={'pattern_type': 'unknown'},
+                )
+                rule.update(True)
+                return rule
+        
+        # Fallback: mark as unknown transformation
+        rule = TransformationRule(
+            rule_type='pattern',
+            description='Complex transformation pattern',
+            confidence=0.3,
+            parameters={'pattern_type': 'complex'},
+        )
+        return rule
+
+    def test_rule_on_examples(self, rule: TransformationRule, examples: list[dict]) -> float:
+        """Test a rule on examples and return accuracy."""
+        correct = 0
+        for ex in examples:
+            inp = np.array(ex['input'], dtype=int)
+            out = np.array(ex['output'], dtype=int)
+            predicted = rule.apply(inp)
+            if predicted is not None and np.array_equal(predicted, out):
+                correct += 1
+        
+        accuracy = correct / len(examples) if examples else 0.0
+        rule.confidence = accuracy
+        return accuracy
         self.frame_history.clear()

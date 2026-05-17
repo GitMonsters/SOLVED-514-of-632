@@ -132,6 +132,8 @@ def run_specialized(
     log: TraceLog,
     static_builder: StaticGraphBuilder,
     mlg: MultilayerCognitionGraph,
+    split: str = "dev",
+    checkpoint_id: str = "v1",
 ) -> bool:
     solve_fn, solver_path = load_specialized_solver(task_id, solves_dir)
     if solve_fn is None:
@@ -141,8 +143,16 @@ def run_specialized(
     if not test_pairs:
         return False
 
+    # Derive avg grid dimensions for intermediate_stats
+    all_inputs = task.get("train", []) + task.get("test", [])
+    widths  = [len(p["input"][0]) for p in all_inputs if p.get("input")]
+    heights = [len(p["input"])    for p in all_inputs if p.get("input")]
+    avg_w = sum(widths)  / len(widths)  if widths  else 0.0
+    avg_h = sum(heights) / len(heights) if heights else 0.0
+
     for pair in test_pairs:
-        with tracer.trace(task_id, task_id, family, "specialized"):
+        with tracer.trace(task_id, task_id, family, "specialized",
+                          checkpoint_id=checkpoint_id, split=split):
             try:
                 result = solve_fn(pair["input"])
                 success = (result == pair["output"])
@@ -150,6 +160,7 @@ def run_specialized(
                 result = None
                 success = False
         tracer.set_success(success)
+        tracer.set_intermediate_stats(avg_grid_width=avg_w, avg_grid_height=avg_h)
         log.append(tracer.last_record)
         mlg.add_records([tracer.last_record])
 
@@ -173,6 +184,8 @@ def run_pipeline(
     tracer: CognitionTracer,
     log: TraceLog,
     mlg: MultilayerCognitionGraph,
+    split: str = "dev",
+    checkpoint_id: str = "pipeline_v1",
 ) -> bool:
     """Run REARCPuzzleSolver on a task."""
     try:
@@ -186,7 +199,8 @@ def run_pipeline(
         return False
 
     for pair in test_pairs:
-        with tracer.trace(task_id, task_id, family, "pipeline"):
+        with tracer.trace(task_id, task_id, family, "pipeline",
+                          checkpoint_id=checkpoint_id, split=split):
             try:
                 pred = solver.solve_task(task)
                 if pred is not None:
@@ -194,9 +208,15 @@ def run_pipeline(
                     success = (np.array(pred).tolist() == expected)
                 else:
                     success = False
+                # Capture intermediate stats from pipeline internals where possible
+                n_rules = len(solver.reasoning.rules) if (
+                    solver.reasoning and hasattr(solver.reasoning, "rules")
+                ) else 0
             except Exception:
                 success = False
+                n_rules = 0
         tracer.set_success(success)
+        tracer.set_intermediate_stats(num_rules_hypothesized=n_rules)
         log.append(tracer.last_record)
         mlg.add_records([tracer.last_record])
 
@@ -210,6 +230,8 @@ def run_baseline(
     tracer: CognitionTracer,
     log: TraceLog,
     mlg: MultilayerCognitionGraph,
+    split: str = "dev",
+    checkpoint_id: str = "baseline_v1",
 ) -> bool:
     """Baseline: return input unchanged."""
     test_pairs = task.get("test", [])
@@ -217,7 +239,8 @@ def run_baseline(
         return False
 
     for pair in test_pairs:
-        with tracer.trace(task_id, task_id, family, "baseline"):
+        with tracer.trace(task_id, task_id, family, "baseline",
+                          checkpoint_id=checkpoint_id, split=split):
             result = [row[:] for row in pair["input"]]
             success = (result == pair["output"])
         tracer.set_success(success)
@@ -548,10 +571,16 @@ def run_experiment(
     }
 
     # ------------------------------------------------------------------ #
-    # 3. Run solvers
+    # 3. Run solvers — last family is held-out, rest are dev
     # ------------------------------------------------------------------ #
+    all_families = sorted(tasks_by_family.keys())
+    heldout_family = all_families[-1] if len(all_families) >= 2 else None
+    if heldout_family:
+        logger.info(f"Held-out family (cross-family eval): {heldout_family}")
+
     n_done = 0
     for family, task_list in sorted(tasks_by_family.items()):
+        split = "heldout_family" if family == heldout_family else "dev"
         for entry in task_list[:max_tasks_per_family]:
             tid = entry["id"]
             task = load_task(tid, dataset_dir)
@@ -561,14 +590,14 @@ def run_experiment(
             if "specialized" in solver_families:
                 run_specialized(
                     tid, task, family, solves_dir, tracer, log,
-                    static_builder, mlgs["specialized"],
+                    static_builder, mlgs["specialized"], split=split,
                 )
 
             if "pipeline" in solver_families:
-                run_pipeline(tid, task, family, tracer, log, mlgs["pipeline"])
+                run_pipeline(tid, task, family, tracer, log, mlgs["pipeline"], split=split)
 
             if "baseline" in solver_families:
-                run_baseline(tid, task, family, tracer, log, mlgs["baseline"])
+                run_baseline(tid, task, family, tracer, log, mlgs["baseline"], split=split)
 
             n_done += 1
             if n_done % 20 == 0:

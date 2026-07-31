@@ -1,20 +1,70 @@
-# 🧩 ARC Puzzle Catalog
+# 🧩 ARC-AGI Solved Tasks — Unified, Verified Catalog
 
-A collection of **422 standalone Python solvers** for [ARC-AGI](https://arcprize.org) puzzles — each one a verified, deterministic program that transforms input grids to output grids with 100% accuracy.
+This repo is the single, unified home for TranscendPlexity's ARC-AGI static-grid puzzle
+solvers. It merges what used to be three separate repos
+(`SOLVED-540-of-540`, `SOLVED---abc82100`, `13-Impossible-ARC-Tasks-SOLVED`) — those are
+now archived and point here.
 
-## Scores
+## The real, verified number
 
-| Benchmark | Solved | Total | Accuracy |
-|-----------|--------|-------|----------|
-| ARC-AGI-1 (eval) | 309 | 400 | **77.3%** |
-| ARC-AGI-2 | 93 | 120 | **77.5%** |
-| ARC-AGI-3 | 20 | 20 | **100%** |
+**514 independently-verified solvers**, out of 632 total solver files in this repo.
+Verified means: real task data exists (either bundled here or in the official public
+ARC-AGI-1 / ARC-AGI-2 datasets), and running `solve(grid)` produces an **exact match**
+against the held-out test pair(s) — not partial/cell-overlap credit.
 
-> **Total: 422 verified solvers** across all three ARC benchmarks.
+| Source dataset | Verified solved |
+|---|---|
+| ARC-AGI-1 (evaluation set) | 18 |
+| ARC-AGI-2 (evaluation set) | 120 |
+| ARC-AGI-2 (training set) | 376 |
+| **Total verified** | **514** |
+| Claimed "solved" in `catalog.json` but **no task data exists anywhere** (not in this repo, not in the official `fchollet/ARC-AGI` or `arcprize/ARC-AGI-2` datasets) — cannot be verified | 118 |
+| **Total solver files in repo** | **632** |
+
+Reproduce this yourself:
+
+```bash
+python3 verify_all.py
+# => Results: 514 passed, 0 failed, 118 skipped (skipped = no task data to check against)
+```
+
+`catalog.json` reflects this exactly — every entry has a `status` of either
+`verified_solved` (with a `verification` note) or `unverified_claim`. Nothing is silently
+marked "✅ Solved / 100%" without backing data anymore.
+
+### Important caveats for honest interpretation
+
+- **Most of the verified count (376/514) is against the ARC-AGI-2 *training* set**, not the
+  harder held-out evaluation set. Training-set tasks are meant to be learnable/inspectable,
+  so this is a real result but a lower bar than evaluation-set generalization. Only
+  **138** (18 + 120) verified solves are against the two official held-out evaluation sets.
+- **118 solver files reference task IDs with no discoverable source data.** These were
+  previously all marked "✅ Solved (100%)" in `catalog.json` — that was false confidence
+  with nothing to check it against. One of them (`0ae0773b`) even describes itself
+  internally as "Memorize degenerate training pairs," i.e. it was written to fit specific
+  training examples rather than induce a general rule — the opposite of what ARC is
+  supposed to test.
+- **`arc3/` is a separate, different system** — an interactive game-playing agent for
+  ARC-AGI-3 (not a static grid solver). It is **not** included in the 514 count above.
+  This exact agent was independently tested and scored **2/183** on real ARC-AGI-3 levels —
+  far below the "20/20 (100%)" figure quoted for it elsewhere in this account's history.
+- **`re-arc/` is also separate** — a bundled claim of "125/125 (100%)" on the RE-ARC
+  procedural-abstraction benchmark. Its `solves/` directory actually contains 601 entries,
+  not 125, and this claim has **not** been independently re-verified here. Treat it as
+  unverified pending further audit.
+- Previous headline claims across this account's repos have been mutually inconsistent:
+  "540/540 (100%)", "514 standalone solvers", "422 solvers", and "665/665 combined" have
+  all been used to describe overlapping-but-different subsets of this same body of work.
+  This README replaces all of those with the one number that's actually been
+  independently reproduced end-to-end: **514**.
 
 ## How It Works
 
-Each solver is a pure Python function that takes a 2D grid (list of lists of ints) and returns the transformed output grid. No ML models, no LLMs at inference time — just code.
+Each solver is a pure Python function that takes a 2D grid (list of lists of ints) and
+returns the transformed output grid. No ML models, no LLMs at inference time — just code,
+synthesized offline using Claude Opus 4.6 via iterative program generation (observe
+training examples → hypothesize rule → write `solve(grid)` → test → iterate → verify
+against held-out test pairs).
 
 ```python
 # Example: solves/0934a4d8/solver.py
@@ -23,22 +73,17 @@ def solve(grid: list[list[int]]) -> list[list[int]]:
     ...
 ```
 
-Solvers were synthesized using Claude Opus 4.6 via iterative program generation — the model analyzes training examples, writes a candidate solver, and refines it until all training and test cases pass.
-
 ## Repository Structure
 
 ```
-arc-puzzle-catalog/
-├── solves/              # 422 solver directories
-│   ├── {task_id}/
-│   │   └── solver.py   # solve(grid) → grid
-│   └── ...
-├── catalog.json         # Metadata for cataloged puzzles
-├── dataset/             # Cached puzzle data
-├── viz/                 # HTML grid visualizations
-├── index.html           # Web catalog viewer
-├── fetch_dataset.py     # ARC data fetcher
-└── generate_viz.py      # Visualization generator
+solves/{task_id}/solver.py   # 632 solver directories (514 verified, 118 unverifiable)
+dataset/tasks/{task_id}.json # Bundled task data for verifiable tasks
+catalog.json                 # Per-task metadata incl. honest status field
+verify_all.py                # Run this to reproduce the 514/632 result yourself
+arc3/                        # SEPARATE interactive-game agent (not part of the 514)
+re-arc/                      # SEPARATE, unverified RE-ARC benchmark claim
+kaggle_2025/                 # Official Kaggle ARC Prize 2025 competition data
+viz/                         # Per-task HTML grid visualizations
 ```
 
 ## Running a Solver
@@ -48,7 +93,7 @@ python3 -c "
 import json, importlib.util
 
 task_id = '0934a4d8'
-with open(f'dataset/{task_id}.json') as f:
+with open(f'dataset/tasks/{task_id}.json') as f:
     task = json.load(f)
 
 spec = importlib.util.spec_from_file_location('solver', f'solves/{task_id}/solver.py')
@@ -62,31 +107,14 @@ for pair in task['test']:
 "
 ```
 
-## Verification
+## Verification protocol
 
-Every solver is independently verified against held-out test cases before being committed. The verification protocol:
+1. Agent writes `solver.py` based on training examples only.
+2. Solver is tested against all training pairs.
+3. Solver is independently verified against test pairs (never seen during development).
+4. Only solvers with backing task data can be verified at all — see caveats above for the
+   118 that currently cannot be.
 
-1. Agent writes `solver.py` based on training examples only
-2. Solver is tested against all training pairs
-3. Solver is independently verified against test pairs (never seen during development)
-4. Only solvers that pass **all** test cases are committed
+## Contact
 
-## Methodology
-
-The solving pipeline uses a multi-model orchestration approach:
-
-- **Primary model**: Claude Opus 4.6 — handles complex spatial reasoning, symmetry detection, and multi-step transformations
-- **Dispatch**: Parallel background agents (10 at a time), each assigned one task
-- **Iteration**: Agents refine solvers through test-driven development until all examples pass
-- **Verification**: Independent re-verification before commit
-
-Typical solve times range from 60 seconds (simple pattern matching) to 20 minutes (complex multi-step reasoning).
-
-## License
-
-MIT
-
-## Links
-
-- [ARC Prize](https://arcprize.org) — The ARC-AGI benchmark
-- [ARC Playground](https://arcprize.org/play) — Try puzzles interactively
+Evan Pieser — epieser@protonmail.com

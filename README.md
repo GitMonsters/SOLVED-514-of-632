@@ -2,8 +2,8 @@
 
 This repo is the single, unified home for TranscendPlexity's ARC-AGI static-grid puzzle
 solvers. It merges what used to be three separate repos
-(`SOLVED-540-of-540`, `SOLVED---abc82100`, `13-Impossible-ARC-Tasks-SOLVED`) — those are
-now archived and point here.
+(this repo, formerly named `SOLVED-540-of-540`, plus `SOLVED---abc82100` and
+`13-Impossible-ARC-Tasks-SOLVED`) — the other two are now archived and point here.
 
 ## The real, verified number
 

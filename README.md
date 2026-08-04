@@ -32,9 +32,9 @@ python3 verify_all.py
 `verified_solved` (with a `verification` note) or `unverified_claim`. Nothing is silently
 marked "✅ Solved / 100%" without backing data anymore.
 
-> The repo name still says `514-of-632`, the figures from the previous audit. The 16
-> extra verified solvers were recovered from a local working copy and added afterwards;
-> `530-of-648` is the current, reproducible count.
+> Previously named `SOLVED-514-of-632`, and before that `SOLVED-540-of-540`. The old
+> URLs still redirect here. The count rose to 530 when 16 already-working solvers were
+> recovered from a local working copy and published.
 
 ## Do the solvers actually generalize?
 

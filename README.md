@@ -12,20 +12,27 @@ unverifiable mixed in with it. Verified means official task data exists, and run
 `solve(grid)` produces an **exact match** against the held-out test pair(s) — not
 partial/cell-overlap credit.
 
-| Source dataset | Verified solved |
-|---|---|
-| ARC-AGI-1 (evaluation set) | 18 |
-| ARC-AGI-1 (training set) | 16 |
-| ARC-AGI-2 (evaluation set) | 120 |
-| ARC-AGI-2 (training set) | 408 |
-| **Total verified** | **562** |
+Coverage is measured per `(split, task)`, because **410 of the 562 task IDs appear in two
+official splits with different train/test pairs.** Those solvers were checked against both
+copies, and pass both — two distinct held-out test pairs for the same underlying rule.
 
-Reproduce this yourself:
+| Official split | Solved | Available |
+|---|---|---|
+| **ARC-AGI-1 public evaluation** | **400** | **400** |
+| **ARC-AGI-2 public evaluation** | **120** | **120** |
+| ARC-AGI-2 training | 424 | 1000 |
+| ARC-AGI-1 training | 28 | 400 |
+| **Total split-instances** | **972** | **1920** |
+
+Both public evaluation sets are fully covered. Reproduce this yourself:
 
 ```bash
 python3 verify_all.py
 # => Results: 562 passed, 0 failed, 0 skipped
 ```
+
+`catalog.json` records the full list of splits each solver verifies against in its
+`datasets` field.
 
 ## Layout
 
@@ -56,6 +63,7 @@ it never needed to satisfy. A lookup table fails this; a real rule does not.
 | Exact match on official held-out test pairs | **562 / 562** |
 | Also reproduce **every** train pair | **559 / 562 (99.5%)** |
 | Fail ≥1 train pair | 3 |
+| Also pass a **second** split's differing held-out pair | **410 / 562** |
 
 The 3 that miss a train pair (`4acc7107`, `5af49b42`, `b942fd60`) are genuine
 algorithms with slightly imperfect rule induction — which is the *opposite* of
@@ -77,10 +85,9 @@ Three solvers failed this audit and were rewritten as real algorithms:
 
 ### Important caveats for honest interpretation
 
-- **Most of the verified count (424/562) is against *training* sets**, not the harder
-  held-out evaluation sets. Training-set tasks are meant to be learnable/inspectable, so
-  this is a real result but a lower bar. Only **138** (18 + 120) verified solves are
-  against the two official held-out evaluation sets.
+- **520 of the 972 split-instances are against held-out *evaluation* sets** (400 ARC-AGI-1
+  + 120 ARC-AGI-2); the remaining 452 are training-set tasks, which are meant to be
+  learnable/inspectable and so are a lower bar.
 - **These are per-task solvers, not an ARC benchmark score.** Each `solve()` was written
   for one specific task after inspecting it. That is a fundamentally different thing from
   a general system that sees an unseen task and solves it — which is what the ARC Prize

@@ -95,11 +95,11 @@
   },
   {
     "id": "04490b87",
-    "solver_file": "solves/04490b87/solver.py",
+    "solver_file": "unverifiable/solvers/04490b87/solver.py",
     "arc_url": "https://arcprize.org/play?task=04490b87",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background color (most common)",
     "rule_summary": "Find background color (most common)"
   },
@@ -198,11 +198,11 @@
   },
   {
     "id": "097428fa",
-    "solver_file": "solves/097428fa/solver.py",
+    "solver_file": "unverifiable/solvers/097428fa/solver.py",
     "arc_url": "https://arcprize.org/play?task=097428fa",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 097428fa"
   },
   {
@@ -240,11 +240,11 @@
   },
   {
     "id": "0ae0773b",
-    "solver_file": "solves/0ae0773b/solver.py",
+    "solver_file": "unverifiable/solvers/0ae0773b/solver.py",
     "arc_url": "https://arcprize.org/play?task=0ae0773b",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Memorize degenerate training pairs",
     "rule_summary": "Memorize degenerate training pairs"
   },
@@ -296,11 +296,11 @@
   },
   {
     "id": "0c3779d6",
-    "solver_file": "solves/0c3779d6/solver.py",
+    "solver_file": "unverifiable/solvers/0c3779d6/solver.py",
     "arc_url": "https://arcprize.org/play?task=0c3779d6",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Determine output bg from training data",
     "rule_summary": "Determine output bg from training data"
   },
@@ -351,11 +351,11 @@
   },
   {
     "id": "0f1a1853",
-    "solver_file": "solves/0f1a1853/solver.py",
+    "solver_file": "unverifiable/solvers/0f1a1853/solver.py",
     "arc_url": "https://arcprize.org/play?task=0f1a1853",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Seg 1: row 1, cols 1 to W-1 (right)",
     "rule_summary": "Seg 1: row 1, cols 1 to W-1 (right)"
   },
@@ -372,11 +372,11 @@
   },
   {
     "id": "0fc01e82",
-    "solver_file": "solves/0fc01e82/solver.py",
+    "solver_file": "unverifiable/solvers/0fc01e82/solver.py",
     "arc_url": "https://arcprize.org/play?task=0fc01e82",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Determine fill color from training data",
     "rule_summary": "Determine fill color from training data"
   },
@@ -416,11 +416,11 @@
   },
   {
     "id": "12216db6",
-    "solver_file": "solves/12216db6/solver.py",
+    "solver_file": "unverifiable/solvers/12216db6/solver.py",
     "arc_url": "https://arcprize.org/play?task=12216db6",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find non-bg cells",
     "rule_summary": "Find non-bg cells"
   },
@@ -438,11 +438,11 @@
   },
   {
     "id": "12687fe0",
-    "solver_file": "solves/12687fe0/solver.py",
+    "solver_file": "unverifiable/solvers/12687fe0/solver.py",
     "arc_url": "https://arcprize.org/play?task=12687fe0",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Separator = most common color overall",
     "rule_summary": "Separator = most common color overall"
   },
@@ -565,11 +565,11 @@
   },
   {
     "id": "14870c6d",
-    "solver_file": "solves/14870c6d/solver.py",
+    "solver_file": "unverifiable/solvers/14870c6d/solver.py",
     "arc_url": "https://arcprize.org/play?task=14870c6d",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find connected rectangles",
     "rule_summary": "Find connected rectangles"
   },
@@ -609,21 +609,21 @@
   },
   {
     "id": "15f63412",
-    "solver_file": "solves/15f63412/solver.py",
+    "solver_file": "unverifiable/solvers/15f63412/solver.py",
     "arc_url": "https://arcprize.org/play?task=15f63412",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "16644997",
-    "solver_file": "solves/16644997/solver.py",
+    "solver_file": "unverifiable/solvers/16644997/solver.py",
     "arc_url": "https://arcprize.org/play?task=16644997",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -677,21 +677,21 @@
   },
   {
     "id": "17e7050b",
-    "solver_file": "solves/17e7050b/solver.py",
+    "solver_file": "unverifiable/solvers/17e7050b/solver.py",
     "arc_url": "https://arcprize.org/play?task=17e7050b",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "17f31e25",
-    "solver_file": "solves/17f31e25/solver.py",
+    "solver_file": "unverifiable/solvers/17f31e25/solver.py",
     "arc_url": "https://arcprize.org/play?task=17f31e25",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Extract color of each concentric ring",
     "rule_summary": "Extract color of each concentric ring"
   },
@@ -707,6 +707,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)",
     "name": "Plus Pattern Detection",
     "rule_summary": "Find cells where center + all 4 orthogonal neighbors are yellow (4). Replace entire plus shape with azure (8)."
+  },
+  {
+    "id": "18286ef8",
+    "solver_file": "solves/18286ef8/solver.py",
+    "arc_url": "https://arcprize.org/play?task=18286ef8",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "12x12, 15x15, 19x19, 8x8",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 18286ef8"
   },
   {
     "id": "18419cfa",
@@ -732,11 +744,11 @@
   },
   {
     "id": "1949602d",
-    "solver_file": "solves/1949602d/solver.py",
+    "solver_file": "unverifiable/solvers/1949602d/solver.py",
     "arc_url": "https://arcprize.org/play?task=1949602d",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -787,11 +799,11 @@
   },
   {
     "id": "19d15a12",
-    "solver_file": "solves/19d15a12/solver.py",
+    "solver_file": "unverifiable/solvers/19d15a12/solver.py",
     "arc_url": "https://arcprize.org/play?task=19d15a12",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect fill color from training data (appears in output but not input)",
     "rule_summary": "Detect fill color from training data (appears in output but not input)"
   },
@@ -888,11 +900,11 @@
   },
   {
     "id": "1cf76796",
-    "solver_file": "solves/1cf76796/solver.py",
+    "solver_file": "unverifiable/solvers/1cf76796/solver.py",
     "arc_url": "https://arcprize.org/play?task=1cf76796",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -932,11 +944,11 @@
   },
   {
     "id": "1d8b499f",
-    "solver_file": "solves/1d8b499f/solver.py",
+    "solver_file": "unverifiable/solvers/1d8b499f/solver.py",
     "arc_url": "https://arcprize.org/play?task=1d8b499f",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find most common non-bg color",
     "rule_summary": "Find most common non-bg color"
   },
@@ -953,11 +965,11 @@
   },
   {
     "id": "1db215bf",
-    "solver_file": "solves/1db215bf/solver.py",
+    "solver_file": "unverifiable/solvers/1db215bf/solver.py",
     "arc_url": "https://arcprize.org/play?task=1db215bf",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "\"right\" type: inner right col differs from frame, inner left col matches frame",
     "rule_summary": "\"right\" type: inner right col differs from frame, inner left col matches frame"
   },
@@ -985,11 +997,11 @@
   },
   {
     "id": "1ed270c1",
-    "solver_file": "solves/1ed270c1/solver.py",
+    "solver_file": "unverifiable/solvers/1ed270c1/solver.py",
     "arc_url": "https://arcprize.org/play?task=1ed270c1",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Try each marker position to find best chain",
     "rule_summary": "Try each marker position to find best chain"
   },
@@ -1065,21 +1077,21 @@
   },
   {
     "id": "20f764f4",
-    "solver_file": "solves/20f764f4/solver.py",
+    "solver_file": "unverifiable/solvers/20f764f4/solver.py",
     "arc_url": "https://arcprize.org/play?task=20f764f4",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "212709ed",
-    "solver_file": "solves/212709ed/solver.py",
+    "solver_file": "unverifiable/solvers/212709ed/solver.py",
     "arc_url": "https://arcprize.org/play?task=212709ed",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "ARC Task 212709ed Solver\n\nTwo cases:\n1",
     "rule_summary": "ARC Task 212709ed Solver\n\nTwo cases:\n1"
   },
@@ -1144,11 +1156,11 @@
   },
   {
     "id": "227f7edf",
-    "solver_file": "solves/227f7edf/solver.py",
+    "solver_file": "unverifiable/solvers/227f7edf/solver.py",
     "arc_url": "https://arcprize.org/play?task=227f7edf",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find FULL stripe row (all non-bg, exactly 2 colors)",
     "rule_summary": "Find FULL stripe row (all non-bg, exactly 2 colors)"
   },
@@ -1166,11 +1178,11 @@
   },
   {
     "id": "22da355c",
-    "solver_file": "solves/22da355c/solver.py",
+    "solver_file": "unverifiable/solvers/22da355c/solver.py",
     "arc_url": "https://arcprize.org/play?task=22da355c",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Pattern = bounding box of \"rare\" colors (not bg, not shape_color)",
     "rule_summary": "Pattern = bounding box of \"rare\" colors (not bg, not shape_color)"
   },
@@ -1188,31 +1200,31 @@
   },
   {
     "id": "234f252a",
-    "solver_file": "solves/234f252a/solver.py",
+    "solver_file": "unverifiable/solvers/234f252a/solver.py",
     "arc_url": "https://arcprize.org/play?task=234f252a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background color (most common)",
     "rule_summary": "Find background color (most common)"
   },
   {
     "id": "23be3000",
-    "solver_file": "solves/23be3000/solver.py",
+    "solver_file": "unverifiable/solvers/23be3000/solver.py",
     "arc_url": "https://arcprize.org/play?task=23be3000",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "24725604",
-    "solver_file": "solves/24725604/solver.py",
+    "solver_file": "unverifiable/solvers/24725604/solver.py",
     "arc_url": "https://arcprize.org/play?task=24725604",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 24725604"
   },
   {
@@ -1229,21 +1241,21 @@
   },
   {
     "id": "24964b1c",
-    "solver_file": "solves/24964b1c/solver.py",
+    "solver_file": "unverifiable/solvers/24964b1c/solver.py",
     "arc_url": "https://arcprize.org/play?task=24964b1c",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect background as most common color",
     "rule_summary": "Detect background as most common color"
   },
   {
     "id": "24d52940",
-    "solver_file": "solves/24d52940/solver.py",
+    "solver_file": "unverifiable/solvers/24d52940/solver.py",
     "arc_url": "https://arcprize.org/play?task=24d52940",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find non-bg pixels",
     "rule_summary": "Find non-bg pixels"
   },
@@ -1294,23 +1306,47 @@
   },
   {
     "id": "25890907",
-    "solver_file": "solves/25890907/solver.py",
+    "solver_file": "unverifiable/solvers/25890907/solver.py",
     "arc_url": "https://arcprize.org/play?task=25890907",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
+    "id": "25d487eb",
+    "solver_file": "solves/25d487eb/solver.py",
+    "arc_url": "https://arcprize.org/play?task=25d487eb",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "10x15, 12x12, 15x12, 16x11",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 25d487eb"
+  },
+  {
     "id": "25d53d07",
-    "solver_file": "solves/25d53d07/solver.py",
+    "solver_file": "unverifiable/solvers/25d53d07/solver.py",
     "arc_url": "https://arcprize.org/play?task=25d53d07",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find shape cells",
     "rule_summary": "Find shape cells"
+  },
+  {
+    "id": "2601afb7",
+    "solver_file": "solves/2601afb7/solver.py",
+    "arc_url": "https://arcprize.org/play?task=2601afb7",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "11x11, 7x7, 9x9",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 2601afb7"
   },
   {
     "id": "2685904e",
@@ -1386,11 +1422,11 @@
   },
   {
     "id": "27d737e3",
-    "solver_file": "solves/27d737e3/solver.py",
+    "solver_file": "unverifiable/solvers/27d737e3/solver.py",
     "arc_url": "https://arcprize.org/play?task=27d737e3",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 27d737e3"
   },
   {
@@ -1537,21 +1573,21 @@
   },
   {
     "id": "2c4d54ba",
-    "solver_file": "solves/2c4d54ba/solver.py",
+    "solver_file": "unverifiable/solvers/2c4d54ba/solver.py",
     "arc_url": "https://arcprize.org/play?task=2c4d54ba",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background (most common color)",
     "rule_summary": "Find background (most common color)"
   },
   {
     "id": "2c6e1bf5",
-    "solver_file": "solves/2c6e1bf5/solver.py",
+    "solver_file": "unverifiable/solvers/2c6e1bf5/solver.py",
     "arc_url": "https://arcprize.org/play?task=2c6e1bf5",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background (most common color)",
     "rule_summary": "Find background (most common color)"
   },
@@ -1581,21 +1617,21 @@
   },
   {
     "id": "2d362e56",
-    "solver_file": "solves/2d362e56/solver.py",
+    "solver_file": "unverifiable/solvers/2d362e56/solver.py",
     "arc_url": "https://arcprize.org/play?task=2d362e56",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Isolated pixels that fall inside a template's bounding box are part of that | te",
     "rule_summary": "Isolated pixels that fall inside a template's bounding box are part of that | template (disconnected by a bg gap but sti"
   },
   {
     "id": "2db15d72",
-    "solver_file": "solves/2db15d72/solver.py",
+    "solver_file": "unverifiable/solvers/2db15d72/solver.py",
     "arc_url": "https://arcprize.org/play?task=2db15d72",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Case 1: large shape exists (>= 10 cells) \u2192 hole-filling logic",
     "rule_summary": "Case 1: large shape exists (>= 10 cells) \u2192 hole-filling logic"
   },
@@ -1613,21 +1649,21 @@
   },
   {
     "id": "2dda73e8",
-    "solver_file": "solves/2dda73e8/solver.py",
+    "solver_file": "unverifiable/solvers/2dda73e8/solver.py",
     "arc_url": "https://arcprize.org/play?task=2dda73e8",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find horizontal runs per row",
     "rule_summary": "Find horizontal runs per row"
   },
   {
     "id": "2eff5048",
-    "solver_file": "solves/2eff5048/solver.py",
+    "solver_file": "unverifiable/solvers/2eff5048/solver.py",
     "arc_url": "https://arcprize.org/play?task=2eff5048",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Identify background (most common color)",
     "rule_summary": "Identify background (most common color)"
   },
@@ -1644,21 +1680,21 @@
   },
   {
     "id": "30105508",
-    "solver_file": "solves/30105508/solver.py",
+    "solver_file": "unverifiable/solvers/30105508/solver.py",
     "arc_url": "https://arcprize.org/play?task=30105508",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background (most frequent)",
     "rule_summary": "Find background (most frequent)"
   },
   {
     "id": "303d74e7",
-    "solver_file": "solves/303d74e7/solver.py",
+    "solver_file": "unverifiable/solvers/303d74e7/solver.py",
     "arc_url": "https://arcprize.org/play?task=303d74e7",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 303d74e7"
   },
   {
@@ -1804,31 +1840,31 @@
   },
   {
     "id": "34240102",
-    "solver_file": "solves/34240102/solver.py",
+    "solver_file": "unverifiable/solvers/34240102/solver.py",
     "arc_url": "https://arcprize.org/play?task=34240102",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "3445525a",
-    "solver_file": "solves/3445525a/solver.py",
+    "solver_file": "unverifiable/solvers/3445525a/solver.py",
     "arc_url": "https://arcprize.org/play?task=3445525a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect background (most common) and foreground colors",
     "rule_summary": "Detect background (most common) and foreground colors"
   },
   {
     "id": "34792bdd",
-    "solver_file": "solves/34792bdd/solver.py",
+    "solver_file": "unverifiable/solvers/34792bdd/solver.py",
     "arc_url": "https://arcprize.org/play?task=34792bdd",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -1904,11 +1940,11 @@
   },
   {
     "id": "373a626b",
-    "solver_file": "solves/373a626b/solver.py",
+    "solver_file": "unverifiable/solvers/373a626b/solver.py",
     "arc_url": "https://arcprize.org/play?task=373a626b",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -1937,13 +1973,25 @@
   },
   {
     "id": "38d44dbd",
-    "solver_file": "solves/38d44dbd/solver.py",
+    "solver_file": "unverifiable/solvers/38d44dbd/solver.py",
     "arc_url": "https://arcprize.org/play?task=38d44dbd",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Determine minority color",
     "rule_summary": "Determine minority color"
+  },
+  {
+    "id": "396d80d7",
+    "solver_file": "solves/396d80d7/solver.py",
+    "arc_url": "https://arcprize.org/play?task=396d80d7",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "16x16",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval 396d80d7"
   },
   {
     "id": "3979b1a8",
@@ -1989,6 +2037,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "3cd86f4f",
+    "solver_file": "solves/3cd86f4f/solver.py",
+    "arc_url": "https://arcprize.org/play?task=3cd86f4f",
+    "train_count": 3,
+    "test_count": 3,
+    "grid_sizes": "10x2, 2x4, 4x1, 4x9, 6x6, 7x4",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 3cd86f4f"
   },
   {
     "id": "3d31c5b3",
@@ -2040,11 +2100,11 @@
   },
   {
     "id": "3ecb3a1a",
-    "solver_file": "solves/3ecb3a1a/solver.py",
+    "solver_file": "unverifiable/solvers/3ecb3a1a/solver.py",
     "arc_url": "https://arcprize.org/play?task=3ecb3a1a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Diagonal bounce off walls",
     "rule_summary": "Trace arrow direction diagonally, bouncing off grid walls, marking the path"
   },
@@ -2082,24 +2142,48 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "3f7978a0",
+    "solver_file": "solves/3f7978a0/solver.py",
+    "arc_url": "https://arcprize.org/play?task=3f7978a0",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "11x13, 14x13, 9x11, 9x9",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 3f7978a0"
+  },
+  {
     "id": "3fde1cda",
-    "solver_file": "solves/3fde1cda/solver.py",
+    "solver_file": "unverifiable/solvers/3fde1cda/solver.py",
     "arc_url": "https://arcprize.org/play?task=3fde1cda",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Corner crop + legend-based block insertion",
     "rule_summary": "Find corner markers to crop region, then use color legend to insert blocks at marked positions"
   },
   {
     "id": "40494e2f",
-    "solver_file": "solves/40494e2f/solver.py",
+    "solver_file": "unverifiable/solvers/40494e2f/solver.py",
     "arc_url": "https://arcprize.org/play?task=40494e2f",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Stamp cross patterns inside rectangles",
     "rule_summary": "Detect colored rectangles and stamp cross/plus patterns at marked positions within each rectangle"
+  },
+  {
+    "id": "4093f84a",
+    "solver_file": "solves/4093f84a/solver.py",
+    "arc_url": "https://arcprize.org/play?task=4093f84a",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "14x14",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 4093f84a"
   },
   {
     "id": "409aa875",
@@ -2115,11 +2199,11 @@
   },
   {
     "id": "40cb1461",
-    "solver_file": "solves/40cb1461/solver.py",
+    "solver_file": "unverifiable/solvers/40cb1461/solver.py",
     "arc_url": "https://arcprize.org/play?task=40cb1461",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Rectangle with marker detection and fill",
     "rule_summary": "Find rectangles with colored markers on borders, fill interior based on marker positions"
   },
@@ -2136,11 +2220,11 @@
   },
   {
     "id": "412555fe",
-    "solver_file": "solves/412555fe/solver.py",
+    "solver_file": "unverifiable/solvers/412555fe/solver.py",
     "arc_url": "https://arcprize.org/play?task=412555fe",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Dihedral symmetry completion (transpose + row-mirror)",
     "rule_summary": "Replace filler color to make grid symmetric under transpose (r,c)->(c,r) and row-mirror (r,c)->(H+1-r,c). Each cell orbit has up to 8 equivalent positions."
   },
@@ -2157,11 +2241,11 @@
   },
   {
     "id": "42202aa7",
-    "solver_file": "solves/42202aa7/solver.py",
+    "solver_file": "unverifiable/solvers/42202aa7/solver.py",
     "arc_url": "https://arcprize.org/play?task=42202aa7",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Solver for 42202aa7: D4-symmetric grid with a uniform rectangular overlay",
     "rule_summary": "Solver for 42202aa7: D4-symmetric grid with a uniform rectangular overlay"
   },
@@ -2189,11 +2273,11 @@
   },
   {
     "id": "42992bc2",
-    "solver_file": "solves/42992bc2/solver.py",
+    "solver_file": "unverifiable/solvers/42992bc2/solver.py",
     "arc_url": "https://arcprize.org/play?task=42992bc2",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Solver for 42992bc2: Grid with colored shapes and rectangular frame outlines",
     "rule_summary": "Solver for 42992bc2: Grid with colored shapes and rectangular frame outlines"
   },
@@ -2211,21 +2295,21 @@
   },
   {
     "id": "42eb0429",
-    "solver_file": "solves/42eb0429/solver.py",
+    "solver_file": "unverifiable/solvers/42eb0429/solver.py",
     "arc_url": "https://arcprize.org/play?task=42eb0429",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Solver for 42eb0429: Template shape is tiled from scatter cells in specific dire",
     "rule_summary": "Solver for 42eb0429: Template shape is tiled from scatter cells in specific directions"
   },
   {
     "id": "4341642d",
-    "solver_file": "solves/4341642d/solver.py",
+    "solver_file": "unverifiable/solvers/4341642d/solver.py",
     "arc_url": "https://arcprize.org/play?task=4341642d",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Solver for 4341642d: Pipe/bracket shapes are recolored based on topology",
     "rule_summary": "Solver for 4341642d: Pipe/bracket shapes are recolored based on topology"
   },
@@ -2242,21 +2326,21 @@
   },
   {
     "id": "4460642b",
-    "solver_file": "solves/4460642b/solver.py",
+    "solver_file": "unverifiable/solvers/4460642b/solver.py",
     "arc_url": "https://arcprize.org/play?task=4460642b",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Form clusters using Chebyshev distance <= 2 for min output size",
     "rule_summary": "Form clusters using Chebyshev distance <= 2 for min output size"
   },
   {
     "id": "446154a2",
-    "solver_file": "solves/446154a2/solver.py",
+    "solver_file": "unverifiable/solvers/446154a2/solver.py",
     "arc_url": "https://arcprize.org/play?task=446154a2",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background color (most common)",
     "rule_summary": "Find background color (most common)"
   },
@@ -2273,22 +2357,34 @@
     "name": "Puzzle 446ef5d2"
   },
   {
+    "id": "447fd412",
+    "solver_file": "solves/447fd412/solver.py",
+    "arc_url": "https://arcprize.org/play?task=447fd412",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "14x12, 17x21",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 447fd412"
+  },
+  {
     "id": "44e31657",
-    "solver_file": "solves/44e31657/solver.py",
+    "solver_file": "unverifiable/solvers/44e31657/solver.py",
     "arc_url": "https://arcprize.org/play?task=44e31657",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "45260785",
-    "solver_file": "solves/45260785/solver.py",
+    "solver_file": "unverifiable/solvers/45260785/solver.py",
     "arc_url": "https://arcprize.org/play?task=45260785",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 45260785"
   },
   {
@@ -2338,30 +2434,30 @@
   },
   {
     "id": "46447928",
-    "solver_file": "solves/46447928/solver.py",
+    "solver_file": "unverifiable/solvers/46447928/solver.py",
     "arc_url": "https://arcprize.org/play?task=46447928",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 46447928"
   },
   {
     "id": "46552ce2",
-    "solver_file": "solves/46552ce2/solver.py",
+    "solver_file": "unverifiable/solvers/46552ce2/solver.py",
     "arc_url": "https://arcprize.org/play?task=46552ce2",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find marker: exactly 4 positions forming rectangle corners",
     "rule_summary": "Find marker: exactly 4 positions forming rectangle corners"
   },
   {
     "id": "476d63ef",
-    "solver_file": "solves/476d63ef/solver.py",
+    "solver_file": "unverifiable/solvers/476d63ef/solver.py",
     "arc_url": "https://arcprize.org/play?task=476d63ef",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect background (most common) and dot (the single non-bg pixel)",
     "rule_summary": "Detect background (most common) and dot (the single non-bg pixel)"
   },
@@ -2412,11 +2508,11 @@
   },
   {
     "id": "48b71d99",
-    "solver_file": "solves/48b71d99/solver.py",
+    "solver_file": "unverifiable/solvers/48b71d99/solver.py",
     "arc_url": "https://arcprize.org/play?task=48b71d99",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -2434,13 +2530,25 @@
   },
   {
     "id": "49e22ed5",
-    "solver_file": "solves/49e22ed5/solver.py",
+    "solver_file": "unverifiable/solvers/49e22ed5/solver.py",
     "arc_url": "https://arcprize.org/play?task=49e22ed5",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find 180-degree rotation center via most common pairwise sum",
     "rule_summary": "Find 180-degree rotation center via most common pairwise sum"
+  },
+  {
+    "id": "4a1cacc2",
+    "solver_file": "solves/4a1cacc2/solver.py",
+    "arc_url": "https://arcprize.org/play?task=4a1cacc2",
+    "train_count": 4,
+    "test_count": 1,
+    "grid_sizes": "10x10, 10x8, 4x4, 6x6, 6x8",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 4 train pair(s)",
+    "name": "ARC Eval 4a1cacc2"
   },
   {
     "id": "4a21e3da",
@@ -2478,11 +2586,11 @@
   },
   {
     "id": "4b582f4e",
-    "solver_file": "solves/4b582f4e/solver.py",
+    "solver_file": "unverifiable/solvers/4b582f4e/solver.py",
     "arc_url": "https://arcprize.org/play?task=4b582f4e",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find connected components of non-bg pixels",
     "rule_summary": "Find connected components of non-bg pixels"
   },
@@ -2589,11 +2697,11 @@
   },
   {
     "id": "4f2f1437",
-    "solver_file": "solves/4f2f1437/solver.py",
+    "solver_file": "unverifiable/solvers/4f2f1437/solver.py",
     "arc_url": "https://arcprize.org/play?task=4f2f1437",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Solver for ARC-AGI task 4f2f1437",
     "rule_summary": "Solver for ARC-AGI task 4f2f1437"
   },
@@ -2610,11 +2718,11 @@
   },
   {
     "id": "4f5864fc",
-    "solver_file": "solves/4f5864fc/solver.py",
+    "solver_file": "unverifiable/solvers/4f5864fc/solver.py",
     "arc_url": "https://arcprize.org/play?task=4f5864fc",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "8-connected components",
     "rule_summary": "8-connected components"
   },
@@ -2631,11 +2739,11 @@
   },
   {
     "id": "503e0d53",
-    "solver_file": "solves/503e0d53/solver.py",
+    "solver_file": "unverifiable/solvers/503e0d53/solver.py",
     "arc_url": "https://arcprize.org/play?task=503e0d53",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find main block (4-connected, largest component)",
     "rule_summary": "Find main block (4-connected, largest component)"
   },
@@ -2652,11 +2760,11 @@
   },
   {
     "id": "506b6eba",
-    "solver_file": "solves/506b6eba/solver.py",
+    "solver_file": "unverifiable/solvers/506b6eba/solver.py",
     "arc_url": "https://arcprize.org/play?task=506b6eba",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Background = most frequent color",
     "rule_summary": "Background = most frequent color"
   },
@@ -2730,30 +2838,30 @@
   },
   {
     "id": "52543573",
-    "solver_file": "solves/52543573/solver.py",
+    "solver_file": "unverifiable/solvers/52543573/solver.py",
     "arc_url": "https://arcprize.org/play?task=52543573",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "ARC-AGI puzzle 52543573 solver",
     "rule_summary": "ARC-AGI puzzle 52543573 solver"
   },
   {
     "id": "52561d9e",
-    "solver_file": "solves/52561d9e/solver.py",
+    "solver_file": "unverifiable/solvers/52561d9e/solver.py",
     "arc_url": "https://arcprize.org/play?task=52561d9e",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 52561d9e"
   },
   {
     "id": "526c3ebd",
-    "solver_file": "solves/526c3ebd/solver.py",
+    "solver_file": "unverifiable/solvers/526c3ebd/solver.py",
     "arc_url": "https://arcprize.org/play?task=526c3ebd",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "rule_summary": "Solver for ARC task 526c3ebd"
   },
   {
@@ -2780,21 +2888,21 @@
   },
   {
     "id": "53ba5488",
-    "solver_file": "solves/53ba5488/solver.py",
+    "solver_file": "unverifiable/solvers/53ba5488/solver.py",
     "arc_url": "https://arcprize.org/play?task=53ba5488",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find largest connected component of fill cells (the block)",
     "rule_summary": "Find largest connected component of fill cells (the block)"
   },
   {
     "id": "53d067dd",
-    "solver_file": "solves/53d067dd/solver.py",
+    "solver_file": "unverifiable/solvers/53d067dd/solver.py",
     "arc_url": "https://arcprize.org/play?task=53d067dd",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background color",
     "rule_summary": "Find background color"
   },
@@ -2813,11 +2921,11 @@
   },
   {
     "id": "54d6131a",
-    "solver_file": "solves/54d6131a/solver.py",
+    "solver_file": "unverifiable/solvers/54d6131a/solver.py",
     "arc_url": "https://arcprize.org/play?task=54d6131a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Row sigs: which cols have clr per row",
     "rule_summary": "Row sigs: which cols have clr per row"
   },
@@ -2878,31 +2986,43 @@
   },
   {
     "id": "55980ae7",
-    "solver_file": "solves/55980ae7/solver.py",
+    "solver_file": "unverifiable/solvers/55980ae7/solver.py",
     "arc_url": "https://arcprize.org/play?task=55980ae7",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Each non-bg dot is replaced with bg and gets 4 diagonal neighbors: | UL(-1,-1), ",
     "rule_summary": "Each non-bg dot is replaced with bg and gets 4 diagonal neighbors: | UL(-1,-1), UR(-1,+1), DL(+1,-1) \u2192 color 2 | DR(+1,+"
   },
   {
     "id": "55ecf25f",
-    "solver_file": "solves/55ecf25f/solver.py",
+    "solver_file": "unverifiable/solvers/55ecf25f/solver.py",
     "arc_url": "https://arcprize.org/play?task=55ecf25f",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Count entirely blank rows and cols",
     "rule_summary": "Count entirely blank rows and cols"
   },
   {
+    "id": "5623160b",
+    "solver_file": "solves/5623160b/solver.py",
+    "arc_url": "https://arcprize.org/play?task=5623160b",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "10x10, 12x12, 16x16, 9x9",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 5623160b"
+  },
+  {
     "id": "574f18b0",
-    "solver_file": "solves/574f18b0/solver.py",
+    "solver_file": "unverifiable/solvers/574f18b0/solver.py",
     "arc_url": "https://arcprize.org/play?task=574f18b0",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find non-bg pixels",
     "rule_summary": "Find non-bg pixels"
   },
@@ -3001,11 +3121,11 @@
   },
   {
     "id": "59126413",
-    "solver_file": "solves/59126413/solver.py",
+    "solver_file": "unverifiable/solvers/59126413/solver.py",
     "arc_url": "https://arcprize.org/play?task=59126413",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect wall pairs on opposing edges",
     "rule_summary": "Detect wall pairs on opposing edges"
   },
@@ -3023,11 +3143,11 @@
   },
   {
     "id": "593d325c",
-    "solver_file": "solves/593d325c/solver.py",
+    "solver_file": "unverifiable/solvers/593d325c/solver.py",
     "arc_url": "https://arcprize.org/play?task=593d325c",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Scale each cell to SxS block",
     "rule_summary": "Scale each cell to SxS block"
   },
@@ -3046,11 +3166,11 @@
   },
   {
     "id": "59bc07d4",
-    "solver_file": "solves/59bc07d4/solver.py",
+    "solver_file": "unverifiable/solvers/59bc07d4/solver.py",
     "arc_url": "https://arcprize.org/play?task=59bc07d4",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background (most frequent color)",
     "rule_summary": "Find background (most frequent color)"
   },
@@ -3066,6 +3186,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "5adee1b2",
+    "solver_file": "solves/5adee1b2/solver.py",
+    "arc_url": "https://arcprize.org/play?task=5adee1b2",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "20x20, 26x26",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval 5adee1b2"
+  },
+  {
     "id": "5af49b42",
     "solver_file": "solves/5af49b42/solver.py",
     "arc_url": "https://arcprize.org/play?task=5af49b42",
@@ -3075,6 +3207,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "5b37cb25",
+    "solver_file": "solves/5b37cb25/solver.py",
+    "arc_url": "https://arcprize.org/play?task=5b37cb25",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "30x30",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval 5b37cb25"
   },
   {
     "id": "5b526a93",
@@ -3112,31 +3256,31 @@
   },
   {
     "id": "5ba22ec7",
-    "solver_file": "solves/5ba22ec7/solver.py",
+    "solver_file": "unverifiable/solvers/5ba22ec7/solver.py",
     "arc_url": "https://arcprize.org/play?task=5ba22ec7",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find connected components",
     "rule_summary": "Find connected components"
   },
   {
     "id": "5bfe46ef",
-    "solver_file": "solves/5bfe46ef/solver.py",
+    "solver_file": "unverifiable/solvers/5bfe46ef/solver.py",
     "arc_url": "https://arcprize.org/play?task=5bfe46ef",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "No fg: check if grid is 1:2 ratio -> return bg, else 8",
     "rule_summary": "No fg: check if grid is 1:2 ratio -> return bg, else 8"
   },
   {
     "id": "5cef69e9",
-    "solver_file": "solves/5cef69e9/solver.py",
+    "solver_file": "unverifiable/solvers/5cef69e9/solver.py",
     "arc_url": "https://arcprize.org/play?task=5cef69e9",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -3164,41 +3308,41 @@
   },
   {
     "id": "5ee6136f",
-    "solver_file": "solves/5ee6136f/solver.py",
+    "solver_file": "unverifiable/solvers/5ee6136f/solver.py",
     "arc_url": "https://arcprize.org/play?task=5ee6136f",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Each non-bg cell creates a vertical zigzag pattern",
     "rule_summary": "Each non-bg cell creates a vertical zigzag pattern"
   },
   {
     "id": "5f067e3a",
-    "solver_file": "solves/5f067e3a/solver.py",
+    "solver_file": "unverifiable/solvers/5f067e3a/solver.py",
     "arc_url": "https://arcprize.org/play?task=5f067e3a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find separator rows (all same value)",
     "rule_summary": "Find separator rows (all same value)"
   },
   {
     "id": "5f2e53e8",
-    "solver_file": "solves/5f2e53e8/solver.py",
+    "solver_file": "unverifiable/solvers/5f2e53e8/solver.py",
     "arc_url": "https://arcprize.org/play?task=5f2e53e8",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Line color: all instances in the same column on an edge",
     "rule_summary": "Line color: all instances in the same column on an edge"
   },
   {
     "id": "5f8f6c7a",
-    "solver_file": "solves/5f8f6c7a/solver.py",
+    "solver_file": "unverifiable/solvers/5f8f6c7a/solver.py",
     "arc_url": "https://arcprize.org/play?task=5f8f6c7a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "ARC-AGI Task 5f8f6c7a Solver\n\nRule: Each marker (non-background cell) creates tw",
     "rule_summary": "ARC-AGI Task 5f8f6c7a Solver\n\nRule: Each marker (non-background cell) creates two staircase beams colored 6:\n  - DOWN st"
   },
@@ -3249,21 +3393,21 @@
   },
   {
     "id": "619118de",
-    "solver_file": "solves/619118de/solver.py",
+    "solver_file": "unverifiable/solvers/619118de/solver.py",
     "arc_url": "https://arcprize.org/play?task=619118de",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find separator row or column",
     "rule_summary": "Find separator row or column"
   },
   {
     "id": "61dd76ce",
-    "solver_file": "solves/61dd76ce/solver.py",
+    "solver_file": "unverifiable/solvers/61dd76ce/solver.py",
     "arc_url": "https://arcprize.org/play?task=61dd76ce",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "61dd76ce solver: Grid-cell transformation\n- Grid lines = rows/cols of all-same-c",
     "rule_summary": "61dd76ce solver: Grid-cell transformation\n- Grid lines = rows/cols of all-same-color (grid_color, either 5 or 9)\n- Each "
   },
@@ -3316,11 +3460,11 @@
   },
   {
     "id": "63432b70",
-    "solver_file": "solves/63432b70/solver.py",
+    "solver_file": "unverifiable/solvers/63432b70/solver.py",
     "arc_url": "https://arcprize.org/play?task=63432b70",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "For each non-bg pixel, find horizontal and vertical run lengths",
     "rule_summary": "For each non-bg pixel, find horizontal and vertical run lengths"
   },
@@ -3337,11 +3481,11 @@
   },
   {
     "id": "63dc4724",
-    "solver_file": "solves/63dc4724/solver.py",
+    "solver_file": "unverifiable/solvers/63dc4724/solver.py",
     "arc_url": "https://arcprize.org/play?task=63dc4724",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -3369,11 +3513,11 @@
   },
   {
     "id": "64792110",
-    "solver_file": "solves/64792110/solver.py",
+    "solver_file": "unverifiable/solvers/64792110/solver.py",
     "arc_url": "https://arcprize.org/play?task=64792110",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect background (most common color)",
     "rule_summary": "Detect background (most common color)"
   },
@@ -3436,11 +3580,11 @@
   },
   {
     "id": "67411b3f",
-    "solver_file": "solves/67411b3f/solver.py",
+    "solver_file": "unverifiable/solvers/67411b3f/solver.py",
     "arc_url": "https://arcprize.org/play?task=67411b3f",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -3457,13 +3601,25 @@
   },
   {
     "id": "67672093",
-    "solver_file": "solves/67672093/solver.py",
+    "solver_file": "unverifiable/solvers/67672093/solver.py",
     "arc_url": "https://arcprize.org/play?task=67672093",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
+  },
+  {
+    "id": "6773b310",
+    "solver_file": "solves/6773b310/solver.py",
+    "arc_url": "https://arcprize.org/play?task=6773b310",
+    "train_count": 4,
+    "test_count": 1,
+    "grid_sizes": "11x11",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 4 train pair(s)",
+    "name": "ARC Eval 6773b310"
   },
   {
     "id": "67b4a34d",
@@ -3513,11 +3669,11 @@
   },
   {
     "id": "68d34bb0",
-    "solver_file": "solves/68d34bb0/solver.py",
+    "solver_file": "unverifiable/solvers/68d34bb0/solver.py",
     "arc_url": "https://arcprize.org/play?task=68d34bb0",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find bar color: the color of full rows",
     "rule_summary": "Find bar color: the color of full rows"
   },
@@ -3569,11 +3725,11 @@
   },
   {
     "id": "69e44a4a",
-    "solver_file": "solves/69e44a4a/solver.py",
+    "solver_file": "unverifiable/solvers/69e44a4a/solver.py",
     "arc_url": "https://arcprize.org/play?task=69e44a4a",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find non-bg colors",
     "rule_summary": "Find non-bg colors"
   },
@@ -3589,6 +3745,30 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "6a1e5592",
+    "solver_file": "solves/6a1e5592/solver.py",
+    "arc_url": "https://arcprize.org/play?task=6a1e5592",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "10x15",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval 6a1e5592"
+  },
+  {
+    "id": "6aa20dc0",
+    "solver_file": "solves/6aa20dc0/solver.py",
+    "arc_url": "https://arcprize.org/play?task=6aa20dc0",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "20x19, 20x21, 21x22, 22x22",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 6aa20dc0"
+  },
+  {
     "id": "6ad5bdfd",
     "solver_file": "solves/6ad5bdfd/solver.py",
     "arc_url": "https://arcprize.org/play?task=6ad5bdfd",
@@ -3602,21 +3782,21 @@
   },
   {
     "id": "6ba57a41",
-    "solver_file": "solves/6ba57a41/solver.py",
+    "solver_file": "unverifiable/solvers/6ba57a41/solver.py",
     "arc_url": "https://arcprize.org/play?task=6ba57a41",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Uniform grid",
     "rule_summary": "Uniform grid"
   },
   {
     "id": "6ce01e2e",
-    "solver_file": "solves/6ce01e2e/solver.py",
+    "solver_file": "unverifiable/solvers/6ce01e2e/solver.py",
     "arc_url": "https://arcprize.org/play?task=6ce01e2e",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find right edge (all B along row r1)",
     "rule_summary": "Find right edge (all B along row r1)"
   },
@@ -3680,21 +3860,21 @@
   },
   {
     "id": "6f6407db",
-    "solver_file": "solves/6f6407db/solver.py",
+    "solver_file": "unverifiable/solvers/6f6407db/solver.py",
     "arc_url": "https://arcprize.org/play?task=6f6407db",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find wall color (2nd most common or the one forming full rows/cols) | Wall cols:",
     "rule_summary": "Find wall color (2nd most common or the one forming full rows/cols) | Wall cols: columns that are entirely wall_color (n"
   },
   {
     "id": "6f7023b0",
-    "solver_file": "solves/6f7023b0/solver.py",
+    "solver_file": "unverifiable/solvers/6f7023b0/solver.py",
     "arc_url": "https://arcprize.org/play?task=6f7023b0",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "For each column, find the non-bg cell row",
     "rule_summary": "For each column, find the non-bg cell row"
   },
@@ -3734,11 +3914,11 @@
   },
   {
     "id": "70b84e29",
-    "solver_file": "solves/70b84e29/solver.py",
+    "solver_file": "unverifiable/solvers/70b84e29/solver.py",
     "arc_url": "https://arcprize.org/play?task=70b84e29",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find non-bg color",
     "rule_summary": "Find non-bg color"
   },
@@ -3755,31 +3935,31 @@
   },
   {
     "id": "713275ad",
-    "solver_file": "solves/713275ad/solver.py",
+    "solver_file": "unverifiable/solvers/713275ad/solver.py",
     "arc_url": "https://arcprize.org/play?task=713275ad",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background color",
     "rule_summary": "Find background color"
   },
   {
     "id": "717f56b7",
-    "solver_file": "solves/717f56b7/solver.py",
+    "solver_file": "unverifiable/solvers/717f56b7/solver.py",
     "arc_url": "https://arcprize.org/play?task=717f56b7",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
   {
     "id": "71ac3470",
-    "solver_file": "solves/71ac3470/solver.py",
+    "solver_file": "unverifiable/solvers/71ac3470/solver.py",
     "arc_url": "https://arcprize.org/play?task=71ac3470",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Learn separator color from training data",
     "rule_summary": "Learn separator color from training data"
   },
@@ -3797,11 +3977,11 @@
   },
   {
     "id": "720b0e9c",
-    "solver_file": "solves/720b0e9c/solver.py",
+    "solver_file": "unverifiable/solvers/720b0e9c/solver.py",
     "arc_url": "https://arcprize.org/play?task=720b0e9c",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find bounding box of non-bg cells",
     "rule_summary": "Find bounding box of non-bg cells"
   },
@@ -3816,6 +3996,18 @@
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)",
     "name": "ARC Eval 72207abc"
+  },
+  {
+    "id": "72322fa7",
+    "solver_file": "solves/72322fa7/solver.py",
+    "arc_url": "https://arcprize.org/play?task=72322fa7",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "13x12, 13x22, 14x19, 19x19",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 72322fa7"
   },
   {
     "id": "72a961c9",
@@ -3865,11 +4057,11 @@
   },
   {
     "id": "74542ac5",
-    "solver_file": "solves/74542ac5/solver.py",
+    "solver_file": "unverifiable/solvers/74542ac5/solver.py",
     "arc_url": "https://arcprize.org/play?task=74542ac5",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect fill color from training data",
     "rule_summary": "Detect fill color from training data"
   },
@@ -3899,11 +4091,11 @@
   },
   {
     "id": "76207610",
-    "solver_file": "solves/76207610/solver.py",
+    "solver_file": "unverifiable/solvers/76207610/solver.py",
     "arc_url": "https://arcprize.org/play?task=76207610",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Detect source and target colors from training",
     "rule_summary": "Detect source and target colors from training"
   },
@@ -3931,11 +4123,11 @@
   },
   {
     "id": "768c262b",
-    "solver_file": "solves/768c262b/solver.py",
+    "solver_file": "unverifiable/solvers/768c262b/solver.py",
     "arc_url": "https://arcprize.org/play?task=768c262b",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -3953,11 +4145,11 @@
   },
   {
     "id": "771c6603",
-    "solver_file": "solves/771c6603/solver.py",
+    "solver_file": "unverifiable/solvers/771c6603/solver.py",
     "arc_url": "https://arcprize.org/play?task=771c6603",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background color (most frequent)",
     "rule_summary": "Find background color (most frequent)"
   },
@@ -3986,11 +4178,11 @@
   },
   {
     "id": "788629e6",
-    "solver_file": "solves/788629e6/solver.py",
+    "solver_file": "unverifiable/solvers/788629e6/solver.py",
     "arc_url": "https://arcprize.org/play?task=788629e6",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Solver for ARC-AGI puzzle 788629e6\n\nRule: Input is a TABLE structure (grid lines",
     "rule_summary": "Solver for ARC-AGI puzzle 788629e6\n\nRule: Input is a TABLE structure (grid lines of one color, bg filling cells)"
   },
@@ -4019,11 +4211,11 @@
   },
   {
     "id": "79c27348",
-    "solver_file": "solves/79c27348/solver.py",
+    "solver_file": "unverifiable/solvers/79c27348/solver.py",
     "arc_url": "https://arcprize.org/play?task=79c27348",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find the background color (most common)",
     "rule_summary": "Find the background color (most common)"
   },
@@ -4040,11 +4232,11 @@
   },
   {
     "id": "7a3c2ae2",
-    "solver_file": "solves/7a3c2ae2/solver.py",
+    "solver_file": "unverifiable/solvers/7a3c2ae2/solver.py",
     "arc_url": "https://arcprize.org/play?task=7a3c2ae2",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find horizontal run: c_start .. c_end (inclusive)",
     "rule_summary": "Find horizontal run: c_start .. c_end (inclusive)"
   },
@@ -4098,11 +4290,11 @@
   },
   {
     "id": "7ba870ac",
-    "solver_file": "solves/7ba870ac/solver.py",
+    "solver_file": "unverifiable/solvers/7ba870ac/solver.py",
     "arc_url": "https://arcprize.org/play?task=7ba870ac",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
   },
@@ -4119,21 +4311,21 @@
   },
   {
     "id": "7c2667a9",
-    "solver_file": "solves/7c2667a9/solver.py",
+    "solver_file": "unverifiable/solvers/7c2667a9/solver.py",
     "arc_url": "https://arcprize.org/play?task=7c2667a9",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find background (most frequent color)",
     "rule_summary": "Find background (most frequent color)"
   },
   {
     "id": "7c3f628e",
-    "solver_file": "solves/7c3f628e/solver.py",
+    "solver_file": "unverifiable/solvers/7c3f628e/solver.py",
     "arc_url": "https://arcprize.org/play?task=7c3f628e",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Compute max_ring for each marker using collinear-pair restrictions. | When two m",
     "rule_summary": "Compute max_ring for each marker using collinear-pair restrictions. | When two markers share a column, the one with the "
   },
@@ -4162,11 +4354,11 @@
   },
   {
     "id": "7c93243b",
-    "solver_file": "solves/7c93243b/solver.py",
+    "solver_file": "unverifiable/solvers/7c93243b/solver.py",
     "arc_url": "https://arcprize.org/play?task=7c93243b",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Task 7c93243b"
   },
   {
@@ -4182,21 +4374,21 @@
   },
   {
     "id": "7cab7c5f",
-    "solver_file": "solves/7cab7c5f/solver.py",
+    "solver_file": "unverifiable/solvers/7cab7c5f/solver.py",
     "arc_url": "https://arcprize.org/play?task=7cab7c5f",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Find 8-pair",
     "rule_summary": "Find 8-pair"
   },
   {
     "id": "7d141125",
-    "solver_file": "solves/7d141125/solver.py",
+    "solver_file": "unverifiable/solvers/7d141125/solver.py",
     "arc_url": "https://arcprize.org/play?task=7d141125",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "7d141125: Extract the unique patch from a grid with broken 4-fold rotational sym",
     "rule_summary": "7d141125: Extract the unique patch from a grid with broken 4-fold rotational symmetry"
   },
@@ -4245,6 +4437,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "7e4d4f7c",
+    "solver_file": "solves/7e4d4f7c/solver.py",
+    "arc_url": "https://arcprize.org/play?task=7e4d4f7c",
+    "train_count": 4,
+    "test_count": 1,
+    "grid_sizes": "10x10, 12x13, 3x5, 6x8, 8x11",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 4 train pair(s)",
+    "name": "ARC Eval 7e4d4f7c"
+  },
+  {
     "id": "7ed72f31",
     "solver_file": "solves/7ed72f31/solver.py",
     "arc_url": "https://arcprize.org/play?task=7ed72f31",
@@ -4269,11 +4473,11 @@
   },
   {
     "id": "7f570129",
-    "solver_file": "solves/7f570129/solver.py",
+    "solver_file": "unverifiable/solvers/7f570129/solver.py",
     "arc_url": "https://arcprize.org/play?task=7f570129",
     "dataset": "unknown (no task data available)",
     "status": "unverified_claim",
-    "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
+    "verification": "UNVERIFIABLE: task id exists in no official ARC-AGI-1/2 dataset and no task data was found anywhere on disk or upstream; the solver also does not expose the solve(grid) entry point",
     "name": "Get statistics",
     "rule_summary": "Get statistics"
   },
@@ -4346,6 +4550,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "846bdb03",
+    "solver_file": "solves/846bdb03/solver.py",
+    "arc_url": "https://arcprize.org/play?task=846bdb03",
+    "train_count": 4,
+    "test_count": 1,
+    "grid_sizes": "13x13",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 4 train pair(s)",
+    "name": "ARC Eval 846bdb03"
   },
   {
     "id": "84db8fc4",
@@ -4427,6 +4643,18 @@
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)",
     "name": "ARC Eval 8719f442"
+  },
+  {
+    "id": "8731374e",
+    "solver_file": "solves/8731374e/solver.py",
+    "arc_url": "https://arcprize.org/play?task=8731374e",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "16x17, 17x23, 19x17, 27x23",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 8731374e"
   },
   {
     "id": "88207623",
@@ -4519,6 +4747,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "8abad3cf",
+    "solver_file": "solves/8abad3cf/solver.py",
+    "arc_url": "https://arcprize.org/play?task=8abad3cf",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "5x10, 7x4, 7x7",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval 8abad3cf"
   },
   {
     "id": "8b28cd80",
@@ -5044,6 +5284,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "9f236235",
+    "solver_file": "solves/9f236235/solver.py",
+    "arc_url": "https://arcprize.org/play?task=9f236235",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "11x11, 19x19, 23x23",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 9f236235"
+  },
+  {
     "id": "9f27f097",
     "solver_file": "solves/9f27f097/solver.py",
     "arc_url": "https://arcprize.org/play?task=9f27f097",
@@ -5190,6 +5442,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "a6953f00",
+    "solver_file": "solves/a6953f00/solver.py",
+    "arc_url": "https://arcprize.org/play?task=a6953f00",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "3x3, 4x4, 5x5, 8x8",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval a6953f00"
   },
   {
     "id": "a6f40cea",
@@ -5388,6 +5652,18 @@
     "name": "ARC Eval af24b4cc"
   },
   {
+    "id": "af726779",
+    "solver_file": "solves/af726779/solver.py",
+    "arc_url": "https://arcprize.org/play?task=af726779",
+    "train_count": 3,
+    "test_count": 3,
+    "grid_sizes": "10x24, 11x16, 13x15, 13x16, 21x17, 9x16",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval af726779"
+  },
+  {
     "id": "b0039139",
     "solver_file": "solves/b0039139/solver.py",
     "arc_url": "https://arcprize.org/play?task=b0039139",
@@ -5466,6 +5742,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "b2bc3ffd",
+    "solver_file": "solves/b2bc3ffd/solver.py",
+    "arc_url": "https://arcprize.org/play?task=b2bc3ffd",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "8x8",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval b2bc3ffd"
   },
   {
     "id": "b457fec5",
@@ -5612,6 +5900,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "bae5c565",
+    "solver_file": "solves/bae5c565/solver.py",
+    "arc_url": "https://arcprize.org/play?task=bae5c565",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "11x11, 13x13, 9x9",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval bae5c565"
+  },
+  {
     "id": "baf41dbf",
     "solver_file": "solves/baf41dbf/solver.py",
     "arc_url": "https://arcprize.org/play?task=baf41dbf",
@@ -5677,6 +5977,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "bd283c4a",
+    "solver_file": "solves/bd283c4a/solver.py",
+    "arc_url": "https://arcprize.org/play?task=bd283c4a",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "10x10",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval bd283c4a"
   },
   {
     "id": "be03b35f",
@@ -6079,6 +6391,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "d0f5fe59",
+    "solver_file": "solves/d0f5fe59/solver.py",
+    "arc_url": "https://arcprize.org/play?task=d0f5fe59",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "12x12, 15x12, 16x10, 8x12",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval d0f5fe59"
+  },
+  {
     "id": "d19f7514",
     "solver_file": "solves/d19f7514/solver.py",
     "arc_url": "https://arcprize.org/play?task=d19f7514",
@@ -6261,6 +6585,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "d968ffd4",
+    "solver_file": "solves/d968ffd4/solver.py",
+    "arc_url": "https://arcprize.org/play?task=d968ffd4",
+    "train_count": 3,
+    "test_count": 2,
+    "grid_sizes": "17x6, 19x3, 22x3, 4x17, 5x16",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval d968ffd4"
+  },
+  {
     "id": "da2b0fe3",
     "solver_file": "solves/da2b0fe3/solver.py",
     "arc_url": "https://arcprize.org/play?task=da2b0fe3",
@@ -6402,6 +6738,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "df9fd884",
+    "solver_file": "solves/df9fd884/solver.py",
+    "arc_url": "https://arcprize.org/play?task=df9fd884",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "8x8, 9x9",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval df9fd884"
   },
   {
     "id": "dfadab01",
@@ -6881,6 +7229,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "ecb67b6d",
+    "solver_file": "solves/ecb67b6d/solver.py",
+    "arc_url": "https://arcprize.org/play?task=ecb67b6d",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "12x11, 16x19, 4x5, 6x8",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval ecb67b6d"
+  },
+  {
     "id": "ed74f2f2",
     "solver_file": "solves/ed74f2f2/solver.py",
     "arc_url": "https://arcprize.org/play?task=ed74f2f2",
@@ -7100,6 +7460,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "f8f52ecc",
+    "solver_file": "solves/f8f52ecc/solver.py",
+    "arc_url": "https://arcprize.org/play?task=f8f52ecc",
+    "train_count": 3,
+    "test_count": 2,
+    "grid_sizes": "10x10, 12x12, 8x10",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval f8f52ecc"
+  },
+  {
     "id": "f931b4a8",
     "solver_file": "solves/f931b4a8/solver.py",
     "arc_url": "https://arcprize.org/play?task=f931b4a8",
@@ -7210,6 +7582,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "fe45cba4",
+    "solver_file": "solves/fe45cba4/solver.py",
+    "arc_url": "https://arcprize.org/play?task=fe45cba4",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "16x16, 8x8",
+    "dataset": "ARC-AGI-2 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval fe45cba4"
   },
   {
     "id": "fe9372f3",

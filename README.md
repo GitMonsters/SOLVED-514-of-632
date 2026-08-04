@@ -7,34 +7,43 @@ solvers. It merges what used to be three separate repos
 
 ## The real, verified number
 
-**530 independently-verified solvers**, out of 648 total solver files in this repo.
-Verified means: real task data exists (either bundled here or in the official public
-ARC-AGI-1 / ARC-AGI-2 datasets), and running `solve(grid)` produces an **exact match**
-against the held-out test pair(s) — not partial/cell-overlap credit.
+**562 verified solvers.** Everything in `solves/` is verified — there is nothing
+unverifiable mixed in with it. Verified means official task data exists, and running
+`solve(grid)` produces an **exact match** against the held-out test pair(s) — not
+partial/cell-overlap credit.
 
 | Source dataset | Verified solved |
 |---|---|
 | ARC-AGI-1 (evaluation set) | 18 |
+| ARC-AGI-1 (training set) | 16 |
 | ARC-AGI-2 (evaluation set) | 120 |
-| ARC-AGI-2 (training set) | 392 |
-| **Total verified** | **530** |
-| Claimed "solved" in `catalog.json` but **no task data exists anywhere** (not in this repo, not in the official `fchollet/ARC-AGI` or `arcprize/ARC-AGI-2` datasets) — cannot be verified | 118 |
-| **Total solver files in repo** | **648** |
+| ARC-AGI-2 (training set) | 408 |
+| **Total verified** | **562** |
 
 Reproduce this yourself:
 
 ```bash
 python3 verify_all.py
-# => Results: 530 passed, 0 failed, 118 skipped (skipped = no task data to check against)
+# => Results: 562 passed, 0 failed, 0 skipped
 ```
 
-`catalog.json` reflects this exactly — every entry has a `status` of either
-`verified_solved` (with a `verification` note) or `unverified_claim`. Nothing is silently
-marked "✅ Solved / 100%" without backing data anymore.
+## Layout
 
-> Previously named `SOLVED-514-of-632`, and before that `SOLVED-540-of-540`. The old
-> URLs still redirect here. The count rose to 530 when 16 already-working solvers were
-> recovered from a local working copy and published.
+```
+solves/         562 verified solvers — every one checkable, nothing else in here
+dataset/tasks/  1147 task files, all byte-identical to an official ARC release
+unverifiable/   material that cannot be verified, kept for history and clearly
+                labelled — see unverifiable/README.md
+catalog.json    one entry per solver, status verified_solved or unverified_claim
+verify_all.py   reproduces the 562
+```
+
+The separation is the point. `solves/` used to contain 118 solvers for task IDs that
+do not exist in any ARC dataset, which made the directory itself untrustworthy. They now
+live under `unverifiable/`, with the evidence written down.
+
+> Previously named `SOLVED-530-of-648`, before that `SOLVED-514-of-632` and
+> `SOLVED-540-of-540`. Old URLs still redirect here.
 
 ## Do the solvers actually generalize?
 
@@ -44,16 +53,15 @@ it never needed to satisfy. A lookup table fails this; a real rule does not.
 
 | Check | Result |
 |---|---|
-| Exact match on official held-out test pairs | **530 / 530** |
-| Also reproduce **every** train pair | **526 / 530 (99.2%)** |
-| Fail ≥1 train pair | 4 |
+| Exact match on official held-out test pairs | **562 / 562** |
+| Also reproduce **every** train pair | **559 / 562 (99.5%)** |
+| Fail ≥1 train pair | 3 |
 
-The 4 that miss a train pair (`4acc7107`, `5af49b42`, `ac0c5833`, `b942fd60`) are genuine
+The 3 that miss a train pair (`4acc7107`, `5af49b42`, `b942fd60`) are genuine
 algorithms with slightly imperfect rule induction — which is the *opposite* of
 memorization, since an overfitted solver would trivially pass the pairs it was fitted to.
 
-Two solvers previously *were* degenerate lookup tables and have been rewritten as real
-algorithms:
+Three solvers failed this audit and were rewritten as real algorithms:
 
 - **`f560132c`** — was `if grid[2][2]==1 and grid[2][3]==5: return <exact 8x8 grid>`.
   Now solves the actual puzzle: the four shapes are jigsaw pieces whose areas sum to a
@@ -69,35 +77,33 @@ algorithms:
 
 ### Important caveats for honest interpretation
 
-- **Most of the verified count (392/530) is against the ARC-AGI-2 *training* set**, not the
-  harder held-out evaluation set. Training-set tasks are meant to be learnable/inspectable,
-  so this is a real result but a lower bar than evaluation-set generalization. Only
-  **138** (18 + 120) verified solves are against the two official held-out evaluation sets.
+- **Most of the verified count (424/562) is against *training* sets**, not the harder
+  held-out evaluation sets. Training-set tasks are meant to be learnable/inspectable, so
+  this is a real result but a lower bar. Only **138** (18 + 120) verified solves are
+  against the two official held-out evaluation sets.
 - **These are per-task solvers, not an ARC benchmark score.** Each `solve()` was written
   for one specific task after inspecting it. That is a fundamentally different thing from
   a general system that sees an unseen task and solves it — which is what the ARC Prize
   leaderboard measures, and why published ARC-AGI-2 scores are in the single digits. Read
   "120/120 on ARC-AGI-2 evaluation" as "these 120 tasks each have a verified reference
   implementation", not as a benchmark result.
-- **118 solver files reference task IDs with no discoverable source data.** These were
-  previously all marked "✅ Solved (100%)" in `catalog.json` — that was false confidence
-  with nothing to check it against. One of them (`0ae0773b`) even describes itself
-  internally as "Memorize degenerate training pairs," i.e. it was written to fit specific
-  training examples rather than induce a general rule — the opposite of what ARC is
-  supposed to test.
+- **118 solvers reference task IDs that exist in no ARC dataset**, checked against local
+  copies and directly against `fchollet/ARC-AGI` and `arcprize/ARC-AGI-2` upstream. They
+  were previously marked "✅ Solved (100%)". They are now in `unverifiable/solvers/` with
+  the full evidence, and are excluded from the 562.
+- **The "125/125 (100%)" RE-ARC claim was tested and does not hold.** Measured with the
+  official RE-ARC generators and verifiers on freshly generated inputs: **0/12**. Of the
+  600 solver directories involved, only 12 correspond to a real RE-ARC task and 537
+  correspond to no official ARC task at all. See `unverifiable/README.md`.
 - **`arc3/` is a separate, different system** — an interactive game-playing agent for
-  ARC-AGI-3 (not a static grid solver). It is **not** included in the 514 count above.
+  ARC-AGI-3 (not a static grid solver). It is **not** included in the count above.
   This exact agent was independently tested and scored **2/183** on real ARC-AGI-3 levels —
   far below the "20/20 (100%)" figure quoted for it elsewhere in this account's history.
-- **`re-arc/` is also separate** — a bundled claim of "125/125 (100%)" on the RE-ARC
-  procedural-abstraction benchmark. Its `solves/` directory actually contains 601 entries,
-  not 125, and this claim has **not** been independently re-verified here. Treat it as
-  unverified pending further audit.
 - Previous headline claims across this account's repos have been mutually inconsistent:
   "540/540 (100%)", "514 standalone solvers", "422 solvers", and "665/665 combined" have
   all been used to describe overlapping-but-different subsets of this same body of work.
   This README replaces all of those with the one number that's actually been
-  independently reproduced end-to-end: **530**.
+  independently reproduced end-to-end: **562**.
 
 ## How It Works
 
@@ -117,12 +123,13 @@ def solve(grid: list[list[int]]) -> list[list[int]]:
 ## Repository Structure
 
 ```
-solves/{task_id}/solver.py   # 632 solver directories (514 verified, 118 unverifiable)
-dataset/tasks/{task_id}.json # Bundled task data for verifiable tasks
+solves/{task_id}/solver.py   # 562 verified solvers — nothing unverifiable in here
+dataset/tasks/{task_id}.json # 1147 task files, all identical to an official release
 catalog.json                 # Per-task metadata incl. honest status field
-verify_all.py                # Run this to reproduce the 514/632 result yourself
-arc3/                        # SEPARATE interactive-game agent (not part of the 514)
-re-arc/                      # SEPARATE, unverified RE-ARC benchmark claim
+verify_all.py                # Run this to reproduce the 562 result yourself
+unverifiable/                # Material that cannot be checked, with the evidence
+arc3/                        # SEPARATE interactive-game agent (not part of the 562)
+re-arc/                      # RE-ARC claim, measured at 0/12 — see unverifiable/
 kaggle_2025/                 # Official Kaggle ARC Prize 2025 competition data
 viz/                         # Per-task HTML grid visualizations
 ```
@@ -153,8 +160,8 @@ for pair in task['test']:
 1. Agent writes `solver.py` based on training examples only.
 2. Solver is tested against all training pairs.
 3. Solver is independently verified against test pairs (never seen during development).
-4. Only solvers with backing task data can be verified at all — see caveats above for the
-   118 that currently cannot be.
+4. Solvers with no backing task data cannot be verified at all, so they are excluded from
+   the count and moved to `unverifiable/` rather than left in `solves/`.
 
 ## Contact
 

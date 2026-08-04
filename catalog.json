@@ -12,6 +12,18 @@
     "name": "ARC Eval 00576224"
   },
   {
+    "id": "007bbfb7",
+    "solver_file": "solves/007bbfb7/solver.py",
+    "arc_url": "https://arcprize.org/play?task=007bbfb7",
+    "train_count": 5,
+    "test_count": 1,
+    "grid_sizes": "3x3",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 5 train pair(s)",
+    "name": "ARC Eval 007bbfb7"
+  },
+  {
     "id": "009d5c81",
     "solver_file": "solves/009d5c81/solver.py",
     "arc_url": "https://arcprize.org/play?task=009d5c81",
@@ -23,6 +35,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "00d62c1b",
+    "solver_file": "solves/00d62c1b/solver.py",
+    "arc_url": "https://arcprize.org/play?task=00d62c1b",
+    "train_count": 5,
+    "test_count": 1,
+    "grid_sizes": "10x10, 20x20, 6x6",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 5 train pair(s)",
+    "name": "ARC Eval 00d62c1b"
+  },
+  {
     "id": "00dbd492",
     "solver_file": "solves/00dbd492/solver.py",
     "arc_url": "https://arcprize.org/play?task=00dbd492",
@@ -32,6 +56,30 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "017c7c7b",
+    "solver_file": "solves/017c7c7b/solver.py",
+    "arc_url": "https://arcprize.org/play?task=017c7c7b",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "6x3",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 017c7c7b"
+  },
+  {
+    "id": "025d127b",
+    "solver_file": "solves/025d127b/solver.py",
+    "arc_url": "https://arcprize.org/play?task=025d127b",
+    "train_count": 2,
+    "test_count": 1,
+    "grid_sizes": "10x10, 14x9, 8x9",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 2 train pair(s)",
+    "name": "ARC Eval 025d127b"
   },
   {
     "id": "03560426",
@@ -54,6 +102,30 @@
     "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
     "name": "Find background color (most common)",
     "rule_summary": "Find background color (most common)"
+  },
+  {
+    "id": "045e512c",
+    "solver_file": "solves/045e512c/solver.py",
+    "arc_url": "https://arcprize.org/play?task=045e512c",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "21x21",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 045e512c"
+  },
+  {
+    "id": "05269061",
+    "solver_file": "solves/05269061/solver.py",
+    "arc_url": "https://arcprize.org/play?task=05269061",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "7x7",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 05269061"
   },
   {
     "id": "05a7bcf2",
@@ -175,6 +247,18 @@
     "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
     "name": "Memorize degenerate training pairs",
     "rule_summary": "Memorize degenerate training pairs"
+  },
+  {
+    "id": "0b148d64",
+    "solver_file": "solves/0b148d64/solver.py",
+    "arc_url": "https://arcprize.org/play?task=0b148d64",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "15x17, 18x19, 19x17, 21x21",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 0b148d64"
   },
   {
     "id": "0b17323b",
@@ -306,6 +390,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "1190e5a7",
+    "solver_file": "solves/1190e5a7/solver.py",
+    "arc_url": "https://arcprize.org/play?task=1190e5a7",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "11x11, 15x15, 22x22, 27x27",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 1190e5a7"
   },
   {
     "id": "11e1fe23",
@@ -779,6 +875,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "1c786137",
+    "solver_file": "solves/1c786137/solver.py",
+    "arc_url": "https://arcprize.org/play?task=1c786137",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "13x16, 17x16, 17x18, 23x21",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 1c786137"
+  },
+  {
     "id": "1cf76796",
     "solver_file": "solves/1cf76796/solver.py",
     "arc_url": "https://arcprize.org/play?task=1cf76796",
@@ -787,6 +895,18 @@
     "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
     "name": "[rule not documented]",
     "rule_summary": "[rule not documented]"
+  },
+  {
+    "id": "1cf80156",
+    "solver_file": "solves/1cf80156/solver.py",
+    "arc_url": "https://arcprize.org/play?task=1cf80156",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "10x12, 11x12, 12x12",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 1cf80156"
   },
   {
     "id": "1d0a4b61",
@@ -999,6 +1119,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
   },
   {
+    "id": "22168020",
+    "solver_file": "solves/22168020/solver.py",
+    "arc_url": "https://arcprize.org/play?task=22168020",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "10x10",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 22168020"
+  },
+  {
     "id": "221dfab4",
     "solver_file": "solves/221dfab4/solver.py",
     "arc_url": "https://arcprize.org/play?task=221dfab4",
@@ -1041,6 +1173,18 @@
     "verification": "NO DATA: cannot check against official ARC-AGI-1/2 datasets or repo-local data",
     "name": "Pattern = bounding box of \"rare\" colors (not bg, not shape_color)",
     "rule_summary": "Pattern = bounding box of \"rare\" colors (not bg, not shape_color)"
+  },
+  {
+    "id": "22eb0ac0",
+    "solver_file": "solves/22eb0ac0/solver.py",
+    "arc_url": "https://arcprize.org/play?task=22eb0ac0",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "10x10",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 22eb0ac0"
   },
   {
     "id": "234f252a",
@@ -1113,6 +1257,18 @@
     "dataset": "ARC-AGI-2 (training)",
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)"
+  },
+  {
+    "id": "253bf280",
+    "solver_file": "solves/253bf280/solver.py",
+    "arc_url": "https://arcprize.org/play?task=253bf280",
+    "train_count": 8,
+    "test_count": 1,
+    "grid_sizes": "10x11, 12x11, 12x13, 3x3, 5x6, 7x13, 7x6, 9x6",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 8 train pair(s)",
+    "name": "ARC Eval 253bf280"
   },
   {
     "id": "2546ccf6",
@@ -1444,6 +1600,18 @@
     "rule_summary": "Case 1: large shape exists (>= 10 cells) \u2192 hole-filling logic"
   },
   {
+    "id": "2dd70a9a",
+    "solver_file": "solves/2dd70a9a/solver.py",
+    "arc_url": "https://arcprize.org/play?task=2dd70a9a",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "10x10, 13x13, 15x15, 20x20",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 2dd70a9a"
+  },
+  {
     "id": "2dda73e8",
     "solver_file": "solves/2dda73e8/solver.py",
     "arc_url": "https://arcprize.org/play?task=2dda73e8",
@@ -1563,6 +1731,18 @@
     "verification": "PASS: solver output exact-matches official held-out test pair(s)",
     "name": "Staircase Extent Sorting",
     "rule_summary": "Vertical colored lines cross a horizontal purple line. Sort line extents ascending left-to-right."
+  },
+  {
+    "id": "32597951",
+    "solver_file": "solves/32597951/solver.py",
+    "arc_url": "https://arcprize.org/play?task=32597951",
+    "train_count": 3,
+    "test_count": 1,
+    "grid_sizes": "17x17",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 3 train pair(s)",
+    "name": "ARC Eval 32597951"
   },
   {
     "id": "32e9702f",
@@ -1832,6 +2012,18 @@
     "status": "verified_solved",
     "verification": "PASS: solver output exact-matches official held-out test pair(s)",
     "name": "Puzzle 3dc255db"
+  },
+  {
+    "id": "3de23699",
+    "solver_file": "solves/3de23699/solver.py",
+    "arc_url": "https://arcprize.org/play?task=3de23699",
+    "train_count": 4,
+    "test_count": 1,
+    "grid_sizes": "12x14, 12x18, 12x9, 18x19, 7x7",
+    "dataset": "ARC-AGI-1 (training)",
+    "status": "verified_solved",
+    "verification": "PASS: solver output exact-matches official held-out test pair(s); also reproduces all 4 train pair(s)",
+    "name": "ARC Eval 3de23699"
   },
   {
     "id": "3e6067c3",
